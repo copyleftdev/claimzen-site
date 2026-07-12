@@ -4,7 +4,7 @@
 // Submissions relay through Web3Forms so no inbox address ships in the page.
 // Get a free key (10s) at https://web3forms.com using your destination email,
 // then paste it below. Until then the form gracefully points to email.
-const WEB3FORMS_ACCESS_KEY = "YOUR-WEB3FORMS-ACCESS-KEY";
+const WEB3FORMS_ACCESS_KEY = "be1bab90-23db-4154-a92f-d77872c720e7";
 const FALLBACK_EMAIL = "dj@codetestcode.io";
 
 // ── Nav shadow on scroll ───────────────────────────────────────
