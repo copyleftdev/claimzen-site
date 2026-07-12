@@ -1,0 +1,25 @@
+# ClaimZen
+
+> Evidence-backed denial recovery for dental practices and revenue-cycle teams.
+> ClaimZen reads every payer denial, checks it against the practice's own records,
+> and — when the payer is wrong — drafts the appeal with signed, verifiable proof.
+
+## What it does
+- Reads every payer denial (email, EOB, and PDF), correlates it to the claim.
+- Runs eight verification checks against the provider's own records and the
+  clearinghouse: prior authorization, timely filing, exact duplicates,
+  underpayments, patient-responsibility errors, and invalid CARC codes.
+- When a denial contradicts the records, drafts an evidence-backed appeal that
+  waits for one-click human approval. Nothing is sent without sign-off.
+- Every case produces a signed, tamper-evident evidence record that verifies
+  offline — receipts, not claims.
+
+## Who it's for
+Independent and group dental practices, DSOs, and RCM / billing teams.
+
+## Why it matters
+The average dental practice loses $50,000-$120,000 a year to denied claims, and
+67% of denials are never resubmitted. ClaimZen recovers that revenue.
+
+## Contact
+Early access: https://claimzen.ai/#contact  ·  email: dj@codetestcode.io
