@@ -40,6 +40,9 @@ Contingency — a share of what ClaimZen recovers, so the practice pays only whe
 
 - [Dental claim denial codes explained: CARC and RARC](https://claimzen.ai/resources/dental-claim-denial-codes/): what the common dental denial codes mean (CO-4, CO-18, CO-29, CO-45, CO-97, CO-197, PR-1, PR-45, N-series remark codes), which are appealable, and how to respond to each — with sources linked.
 - [How to appeal a dental insurance claim denial: a step-by-step guide](https://claimzen.ai/resources/how-to-appeal-a-dental-claim-denial/): reading the EOB, identifying the denial reason, gathering the record that refutes it, writing the appeal, meeting the payer's timely-filing window, and escalating — with the mistakes that get appeals rejected.
+- [Timely filing limits by dental payer, and how to fight a CO-29 denial](https://claimzen.ai/resources/dental-timely-filing-limits/): commonly cited filing windows for Delta Dental, Cigna, Aetna, UnitedHealthcare, MetLife, Medicare, and Medicaid, and how to overturn a CO-29 "time limit expired" denial when the claim was filed on time.
+- [Dental claim underpayments and downcoding: how to spot and recover them](https://claimzen.ai/resources/dental-claim-underpayments-downcoding/): the three ways payers underpay (below-contract payment, downcoding to a cheaper procedure, bundling), how to detect them by reconciling the EOB against the contracted fee schedule, and how to recover the difference.
+- [CO-197 prior-authorization denials, and when the payer is wrong](https://claimzen.ai/resources/co-197-prior-authorization-denials/): what CARC 197 ("precertification/authorization/notification/pre-treatment absent") means, the common causes, and how to appeal when authorization was on file, was not required, or a retro-authorization applies.
 
 ## Media
 
