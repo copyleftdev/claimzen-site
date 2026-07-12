@@ -65,6 +65,7 @@ Contingency — a share of what ClaimZen recovers, so the practice pays only whe
 ## Media
 
 - [Product demo film](https://claimzen.ai/media/claimzen-demo.mp4): the ClaimZen recovery desk end to end — a denial opened, the payer's claim set against the practice's own records, the evidence-backed appeal drafted, and the signed evidence record.
+- [ClaimZen Practice walkthrough](https://claimzen.ai/media/claimzen-practice-demo.mp4): the free AI-native PMS end to end, recorded from the real running system — the decision desk, the four AI coprocessors (imaging read, ambient scribe, chart-to-claim, appeal drafting) each proposing while a human signs, the signed provenance view, and the DSO group roll-up. Watch it at https://claimzen.ai/practice/#walkthrough.
 
 ## Answers to common questions
 

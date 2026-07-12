@@ -19,6 +19,10 @@
   <meta property="og:image" content="https://claimzen.ai/media/pms/02-desk-light.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://claimzen.ai/media/pms/02-desk-light.png">
+  <meta property="og:video" content="https://claimzen.ai/media/claimzen-practice-demo.mp4">
+  <meta property="og:video:type" content="video/mp4">
+  <meta property="og:video:width" content="1920">
+  <meta property="og:video:height" content="1080">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -53,6 +57,17 @@
           {"@type":"Question","name":"Does the imaging AI diagnose?","acceptedAnswer":{"@type":"Answer","text":"No. The imaging coprocessor is a second read, never an auto-diagnosis. It proposes tooth-level findings grounded in the radiograph read; a licensed clinician remains the read of record and confirms each finding by signing it."}},
           {"@type":"Question","name":"What are the AI coprocessors?","acceptedAnswer":{"@type":"Answer","text":"Four: an ambient clinical scribe (operatory audio to a coded note), an imaging read (radiograph to tooth-level findings), chart-to-claim coding (charted facts to an assembled claim), and appeal drafting (a denial to an evidence-backed appeal). Every one proposes only, passes a deterministic gate, and is signed by a human."}}
         ]
+      },
+      {
+        "@type": "VideoObject",
+        "@id": "https://claimzen.ai/practice/#walkthrough",
+        "name": "ClaimZen Practice — product walkthrough",
+        "description": "A recording of the real running ClaimZen Practice system: the decision desk, the four AI coprocessors (ambient scribe, imaging read, chart-to-claim, appeal drafting) each proposing while a human signs, the signed provenance view, and the DSO group roll-up — every number verifying offline.",
+        "thumbnailUrl": "https://claimzen.ai/media/practice-poster.jpg",
+        "contentUrl": "https://claimzen.ai/media/claimzen-practice-demo.mp4",
+        "uploadDate": "2026-07-12",
+        "duration": "PT2M43S",
+        "publisher": { "@type": "Organization", "name": "ClaimZen", "url": "https://claimzen.ai/" }
       },
       {
         "@type": "BreadcrumbList",
@@ -121,6 +136,22 @@
           <p>Charting, scheduling, claims, and a decision desk on a signed, tamper-evident kernel — with four AI coprocessors that propose and a human who signs.</p>
           <a class="go" href="#coprocessors">See the coprocessors →</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILM -->
+  <section class="section" id="walkthrough">
+    <div class="wrap">
+      <p class="kicker reveal">The walkthrough</p>
+      <h2 class="reveal">The whole loop, in under three minutes.</h2>
+      <p class="section-lede reveal">A recording of the real running system — the decision desk, each coprocessor proposing, a human signing, and every number verifying offline. Nothing staged; nothing mocked.</p>
+      <div class="filmframe reveal">
+        <video controls preload="none" poster="/media/practice-poster.jpg"
+               width="1920" height="1080"
+               aria-label="ClaimZen Practice product walkthrough">
+          <source src="/media/claimzen-practice-demo.mp4" type="video/mp4">
+        </video>
       </div>
     </div>
   </section>
