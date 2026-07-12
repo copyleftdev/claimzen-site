@@ -1,0 +1,89 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>ClaimZen — Private</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+ *{margin:0;box-sizing:border-box}
+ body{background:radial-gradient(1400px 900px at 50% 20%,#0a3a34,#062824 46%,#03110f);color:#e6f4f0;
+   font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh}
+ .z{color:#2ee0c6}
+ .gate{min-height:100vh;display:grid;place-items:center;padding:24px}
+ .gatebox{width:100%;max-width:420px;text-align:center}
+ .imark,.gmark{width:120px;height:120px}
+ .gmark{margin:0 auto 26px;width:76px;height:76px;border-radius:20px;background:linear-gradient(150deg,#16c3ad,#0b8a78);
+   display:grid;place-items:center;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+ .gmark svg{width:42px;height:42px;fill:none;stroke:#fff;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+ .gate h1{font-size:26px;font-weight:600;letter-spacing:-.01em}
+ .gate p{color:#8fb8b1;margin-top:10px;font-size:15px}
+ .gate form{margin-top:26px;display:flex;gap:10px}
+ .gate input{flex:1;font:inherit;font-size:16px;color:#e6f4f0;background:rgba(255,255,255,.05);
+   border:1px solid rgba(46,224,198,.35);border-radius:11px;padding:13px 15px}
+ .gate input:focus{outline:none;border-color:#2ee0c6;box-shadow:0 0 0 3px rgba(46,224,198,.18)}
+ .gate button{font:inherit;font-weight:600;font-size:15px;color:#052018;background:#2ee0c6;border:0;border-radius:11px;padding:13px 20px;cursor:pointer}
+ .gate .err{color:#ff9592;margin-top:14px;font-size:14px;min-height:18px}
+ .gate .req{display:inline-block;margin-top:8px;color:#6fbfb2;font-size:13.5px;text-decoration:none;border-bottom:1px solid rgba(111,191,178,.3)}
+ .gate .req:hover{color:#2ee0c6}
+ .content{max-width:920px;margin:0 auto;padding:40px 24px 80px;opacity:0;transition:opacity .5s}
+ .content.on{opacity:1}
+ .itop{display:flex;align-items:center;gap:13px;margin-bottom:20px}
+ .itop .imark{width:44px;height:44px;border-radius:11px;background:linear-gradient(150deg,#16c3ad,#0b8a78);display:grid;place-items:center}
+ .itop .imark svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+ .itop b{font-size:22px;font-weight:600}.itop small{display:block;font-family:ui-monospace,monospace;font-size:12px;color:#6fbfb2;letter-spacing:.12em;text-transform:uppercase}
+ .isec{margin-top:44px}
+ .ik{font-family:ui-monospace,"IBM Plex Mono",monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#2ee0c6;margin-bottom:16px}
+ .frame{border-radius:16px;overflow:hidden;border:1px solid rgba(46,224,198,.25);background:#04140f;box-shadow:0 30px 70px -30px rgba(0,0,0,.7)}
+ .frame video{width:100%;aspect-ratio:16/9;display:block;background:#04140f}
+ .mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+ .m{border:1px solid rgba(46,224,198,.22);background:rgba(12,42,38,.6);border-radius:14px;padding:22px}
+ .m .n{font-size:38px;font-weight:650;color:#7ff0dd;letter-spacing:-.02em}
+ .m .l{margin-top:8px;color:#8fb8b1;font-size:14px;line-height:1.45}
+ .fine{margin-top:14px;color:#6f9d95;font-size:13px}
+ .ask h2{font-size:clamp(28px,4vw,42px);letter-spacing:-.02em;margin-top:4px}
+ .ask .lede{color:#9fc9c1;font-size:18px;margin-top:14px;max-width:640px}
+ .ibtn{display:inline-block;margin-top:22px;font-weight:600;color:#052018;background:#2ee0c6;border-radius:11px;padding:13px 22px;text-decoration:none}
+ .ifoot{margin-top:56px;padding-top:22px;border-top:1px solid rgba(46,224,198,.15);color:#6f9d95;font-size:13px}
+ @media(max-width:720px){.mgrid{grid-template-columns:1fr 1fr}}
+</style></head><body>
+<div class="gate" id="gate">
+  <div class="gatebox">
+    <div class="gmark"><svg viewBox="0 0 32 32"><path d="M26.83 14.09A11 11 0 1 1 17.91 5.17"/><path d="M12.8 10.2 16.6 14 26.5 3.2"/></svg></div>
+    <h1>Claim<span class="z">Zen</span> — private</h1>
+    <p>This overview is confidential. Enter the passphrase you were given.</p>
+    <form id="gform"><input id="gpass" type="password" autocomplete="off" placeholder="Passphrase" autofocus><button type="submit">Enter</button></form>
+    <div class="err" id="gerr"></div>
+    <a class="req" href="mailto:dj@codetestcode.io?subject=ClaimZen%20%E2%80%94%20investor%20access">Investors &amp; press: request access →</a>
+  </div>
+</div>
+<div class="content" id="content"></div>
+<script>
+const SALT = Uint8Array.from(atob("FsrXtRVA3zwPHyI160o/Jw=="), c=>c.charCodeAt(0));
+const ITER = 120000;
+const CONTENT_CIPHER = "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";
+const b642buf = b => Uint8Array.from(atob(b), c=>c.charCodeAt(0));
+async function deriveKey(pass){
+  const km = await crypto.subtle.importKey("raw", new TextEncoder().encode(pass), "PBKDF2", false, ["deriveKey"]);
+  return crypto.subtle.deriveKey({name:"PBKDF2",salt:SALT,iterations:ITER,hash:"SHA-256"}, km, {name:"AES-GCM",length:256}, false, ["decrypt"]);
+}
+async function dec(key, buf){
+  const iv = buf.slice(0,12), data = buf.slice(12);
+  return new Uint8Array(await crypto.subtle.decrypt({name:"AES-GCM",iv}, key, data));
+}
+const gform=document.getElementById("gform"), gpass=document.getElementById("gpass"), gerr=document.getElementById("gerr");
+gform.addEventListener("submit", async e=>{
+  e.preventDefault(); gerr.textContent="Unlocking…";
+  try{
+    const key = await deriveKey(gpass.value);
+    const html = new TextDecoder().decode(await dec(key, b642buf(CONTENT_CIPHER)));
+    const content = document.getElementById("content");
+    content.innerHTML = html;
+    document.getElementById("gate").style.display="none";
+    content.classList.add("on"); window.scrollTo(0,0);
+    for(const v of content.querySelectorAll("video[data-enc]")){
+      const res = await fetch(v.dataset.enc); const buf = new Uint8Array(await res.arrayBuffer());
+      const plain = await dec(key, buf);
+      v.src = URL.createObjectURL(new Blob([plain], {type:"video/mp4"}));
+    }
+  }catch(err){ gerr.textContent="Incorrect passphrase."; }
+});
+</script>
+</body></html>
