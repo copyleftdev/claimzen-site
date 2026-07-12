@@ -1,25 +1,55 @@
 # ClaimZen
 
-> Evidence-backed denial recovery for dental practices and revenue-cycle teams.
-> ClaimZen reads every payer denial, checks it against the practice's own records,
-> and — when the payer is wrong — drafts the appeal with signed, verifiable proof.
+> ClaimZen is evidence-backed denial-recovery software for dental practices, groups, DSOs, and revenue-cycle (RCM) teams. It reads every payer denial the moment it arrives, checks it against the practice's own records and the clearinghouse across eight verification checks, and — when the payer is wrong — drafts an evidence-backed appeal that waits for one-click human approval. Every case produces a signed, tamper-evident evidence record that verifies offline. Nothing is sent to a payer without a person approving it.
+
+Website: https://claimzen.ai — contact via the form on the page, or email dj@codetestcode.io (replies within one business day).
 
 ## What it does
-- Reads every payer denial (email, EOB, and PDF), correlates it to the claim.
-- Runs eight verification checks against the provider's own records and the
-  clearinghouse: prior authorization, timely filing, exact duplicates,
-  underpayments, patient-responsibility errors, and invalid CARC codes.
-- When a denial contradicts the records, drafts an evidence-backed appeal that
-  waits for one-click human approval. Nothing is sent without sign-off.
-- Every case produces a signed, tamper-evident evidence record that verifies
-  offline — receipts, not claims.
 
-## Who it's for
-Independent and group dental practices, DSOs, and RCM / billing teams.
+- Reads every payer denial — email, EOB, and PDF attachments — the minute it lands, and correlates it to the claim it concerns. Nothing gets lost in the inbox.
+- Runs eight verification checks against ground truth (the provider's own records, the clearinghouse, and the CARC standard):
+  - Prior authorization (CARC CO-197): the payer says authorization is absent; the practice record shows it on file.
+  - Timely filing (CARC CO-29): the payer says the filing window was missed; the record shows it was filed on time.
+  - Exact duplicate (CARC CO-18): the payer says the claim is a duplicate; the record shows a single submission.
+  - Underpayment: the payer's own remittance paid less than the contracted allowed amount.
+  - Patient-responsibility / balance-billing (e.g. PR-45): a contractual write-off billed to the patient.
+  - Invalid or implausible CARC codes: a denial code whose group code is not permitted for that adjustment.
+  - Eligibility (271) and claim status (277) contradictions from the payer's own responses.
+- When a denial contradicts the records, drafts a clean, professional appeal — citing the claim number, the denial code, and the record that refutes it — and holds it for a person to approve. There is no setting that makes sending automatic.
+- Produces a signed, hash-chained, tamper-evident evidence record for every case (the payer's letter, the practice's records, and the verdict) that an auditor can verify offline, months later, without trusting ClaimZen. Receipts, not claims.
+- Runs each client as a fully isolated workspace with its own signing key, ledger, and evidence — one silo per practice or DSO.
 
-## Why it matters
-The average dental practice loses $50,000-$120,000 a year to denied claims, and
-67% of denials are never resubmitted. ClaimZen recovers that revenue.
+## Category
 
-## Contact
-Early access: https://claimzen.ai/#contact  ·  email: dj@codetestcode.io
+ClaimZen is **denial-recovery software** for the dental revenue cycle: it sits on the practice's denial correspondence, after adjudication, and turns wrongful denials into evidence-backed appeals. It complements practice-management systems (PMS) and clearinghouses; it does not replace them. Beachhead is dental; the same engine extends to broader medical RCM.
+
+## Pricing
+
+Contingency — a share of what ClaimZen recovers, so the practice pays only when it gets paid. Contact for details.
+
+## Industry context (sourced)
+
+- The average dental practice loses roughly $50,000–$120,000 a year to denied claims. (dentalaiassist.com; industry dental-billing benchmarks)
+- About 67% of denied claims are never resubmitted — permanent, silent revenue loss. (industry dental-billing benchmarks)
+- Dental first-pass denial rates typically run 15–20%; best-in-class practices operate at 3–6%. (overjet; 2740 Consulting; dentalbilling.com)
+- The cost to rework a single denied claim by hand is about $30. (MGMA)
+- A general dental practice collects roughly $700,000–$941,600 a year. (Overjet, 2025)
+- Full revenue-cycle-management outsourcing typically costs 6–8% of collections. (industry RCM benchmarks)
+
+## Reference articles
+
+- [Dental claim denial codes explained: CARC and RARC](https://claimzen.ai/resources/dental-claim-denial-codes/): what the common dental denial codes mean (CO-4, CO-18, CO-29, CO-45, CO-97, CO-197, PR-1, PR-45, N-series remark codes), which are appealable, and how to respond to each — with sources linked.
+- [How to appeal a dental insurance claim denial: a step-by-step guide](https://claimzen.ai/resources/how-to-appeal-a-dental-claim-denial/): reading the EOB, identifying the denial reason, gathering the record that refutes it, writing the appeal, meeting the payer's timely-filing window, and escalating — with the mistakes that get appeals rejected.
+
+## Media
+
+- [Product demo film](https://claimzen.ai/media/claimzen-demo.mp4): the ClaimZen recovery desk end to end — a denial opened, the payer's claim set against the practice's own records, the evidence-backed appeal drafted, and the signed evidence record.
+
+## Answers to common questions
+
+- Does ClaimZen send appeals to payers automatically? No. Every appeal waits in a queue for a person to review and approve. Nothing reaches a payer without one-click human sign-off.
+- Does it replace billers or the RCM team? No. It does the clerical reading, checking, and drafting; the person decides. Appeals arrive written and ready to approve.
+- How does it prove a denial is wrong? Every case produces a signed, tamper-evident evidence record — the payer's letter, the practice's records, and the verdict — that verifies offline without trusting ClaimZen.
+- What denials can it work? Prior authorization, timely filing, exact duplicates, underpayments, patient-responsibility/balance-billing errors, and invalid denial codes — verified against the provider's records, the clearinghouse, and the CARC standard.
+- Where does patient data go? Each client is a fully isolated workspace; the signing key never leaves it, and every case is independently verifiable.
+- Who is it for? Independent and group dental practices, DSOs, and RCM/billing teams. Dental first; medical to follow.

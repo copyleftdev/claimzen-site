@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dental Claim Denial Codes Explained: CARC &amp; RARC (2026) — ClaimZen</title>
+  <meta name="description" content="What the common dental claim denial codes mean — CO-4, CO-16, CO-18, CO-29, CO-45, CO-97, CO-109, CO-197, PR-1, PR-2, PR-3, PR-45, PR-204 — which are appealable, and how to respond to each. A plain-English CARC/RARC reference for dental billing teams.">
+  <link rel="canonical" href="https://claimzen.ai/resources/dental-claim-denial-codes/">
+  <meta name="theme-color" content="#f7fbfa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#04140f" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="ClaimZen">
+  <meta property="og:title" content="Dental Claim Denial Codes Explained: CARC & RARC">
+  <meta property="og:description" content="A plain-English reference to the common dental denial codes — which are appealable, and how to respond to each.">
+  <meta property="og:url" content="https://claimzen.ai/resources/dental-claim-denial-codes/">
+  <meta property="og:image" content="https://claimzen.ai/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Dental Claim Denial Codes Explained: CARC & RARC",
+        "description": "A plain-English reference to the common dental claim denial codes (CARC) and remittance remark codes (RARC), which are appealable, and how to respond to each.",
+        "author": { "@type": "Organization", "name": "ClaimZen", "url": "https://claimzen.ai/" },
+        "publisher": { "@type": "Organization", "name": "ClaimZen", "logo": { "@type": "ImageObject", "url": "https://claimzen.ai/og.jpg" } },
+        "datePublished": "2026-07-12",
+        "dateModified": "2026-07-12",
+        "mainEntityOfPage": "https://claimzen.ai/resources/dental-claim-denial-codes/",
+        "about": ["dental claim denials","CARC codes","RARC codes","denial management","dental billing"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://claimzen.ai/"},
+          {"@type":"ListItem","position":2,"name":"Resources","item":"https://claimzen.ai/resources/"},
+          {"@type":"ListItem","position":3,"name":"Dental claim denial codes","item":"https://claimzen.ai/resources/dental-claim-denial-codes/"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type":"Question","name":"What is the difference between a CARC and a RARC?","acceptedAnswer":{"@type":"Answer","text":"A CARC (Claim Adjustment Reason Code) states why a claim amount was adjusted or denied. A RARC (Remittance Advice Remark Code) adds detail — it supplements a CARC to explain the specific missing item or condition. CARC 16 (claim lacks information) almost always appears with one or more N-series RARCs naming what is missing."}},
+          {"@type":"Question","name":"What does denial code CO-197 mean on a dental claim?","acceptedAnswer":{"@type":"Answer","text":"CARC 197 means 'Precertification/authorization/notification/pre-treatment absent' — the payer required prior authorization and did not find it. If the authorization was in fact obtained and is on file, CO-197 is appealable: attach the authorization number and reference it in the appeal."}},
+          {"@type":"Question","name":"Is CO-45 patient responsibility?","acceptedAnswer":{"@type":"Answer","text":"No. CARC 45 ('charge exceeds fee schedule/maximum allowable or contracted fee arrangement') carried under the CO (Contractual Obligation) group is a write-off the in-network provider absorbs — it is not billable to the patient. If the same reason appears under the PR (Patient Responsibility) group as PR-45, that is a balance-billing red flag and should be challenged."}},
+          {"@type":"Question","name":"Which dental denial codes are worth appealing?","acceptedAnswer":{"@type":"Answer","text":"The codes most often overturned are the ones where the payer's determination contradicts the practice's own records: CO-197 (authorization was actually on file), CO-29 (the claim was filed on time), CO-18 (only one submission exists), underpayments, and improper patient-responsibility adjustments like PR-45. Legitimate patient-responsibility codes (PR-1 deductible, PR-2 coinsurance, PR-3 copay) are not appealed — they are billed to the patient."}}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+<header class="nav" id="nav">
+  <a class="brand" href="/" aria-label="ClaimZen home">
+    <span class="mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M26.83 14.09A11 11 0 1 1 17.91 5.17"/><path d="M12.8 10.2 16.6 14 26.5 3.2"/></svg></span>
+    <span class="wordmark">Claim<span class="z">Zen</span></span>
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="/resources/">Resources</a>
+    <a href="/#how">How it works</a>
+    <a class="btn btn-primary btn-sm" href="/#contact">Get early access</a>
+  </nav>
+</header>
+
+<main class="article">
+  <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> › <a href="/resources/">Resources</a> › Dental claim denial codes</nav>
+  <h1>Dental claim denial codes explained: CARC &amp; RARC</h1>
+  <p class="dek">A plain-English reference to the denial codes dental practices see most — what each one means, whether it's worth appealing, and how to respond.</p>
+  <p class="byline">By ClaimZen · Updated July 2026 · ~7 min read</p>
+
+  <div class="prose">
+    <p>Every denied or adjusted dental claim comes back with a code. Two kinds, actually. A <strong>CARC</strong> — Claim Adjustment Reason Code — says <em>why</em> the payer changed the amount. A <strong>RARC</strong> — Remittance Advice Remark Code — adds the detail. They arrive on the Explanation of Benefits (EOB) and, electronically, inside the X12 835 remittance. The code set is standardized and maintained by <a href="https://x12.org/codes/claim-adjustment-reason-codes" rel="noopener">X12</a>; there are hundreds of CARCs and over a thousand RARCs, but a dental office lives with a couple dozen.</p>
+    <p>The single most useful thing to learn first isn't a code — it's the <strong>group code</strong> in front of it.</p>
+
+    <h2>Group codes: who's on the hook</h2>
+    <p>Every CARC is preceded by a two-letter group code that assigns responsibility. It changes everything about how you respond:</p>
+    <ul>
+      <li><strong>CO — Contractual Obligation.</strong> A write-off the in-network provider absorbs under the contract. <em>Not billable to the patient.</em></li>
+      <li><strong>PR — Patient Responsibility.</strong> Deductible, coinsurance, copay, or non-covered amounts you bill to the patient.</li>
+      <li><strong>OA — Other Adjustment.</strong> Used when neither CO nor PR fits (often crossovers or coordination of benefits).</li>
+      <li><strong>PI — Payer Initiated Reduction.</strong> The payer's own reduction, not backed by a patient obligation or a contract term.</li>
+    </ul>
+    <p>The same reason number means different things depending on the group. <code>CO-45</code> is a contractual write-off. <code>PR-45</code> is the payer telling you to bill the patient for an amount over the fee schedule — which, for an in-network provider, is usually improper balance billing and worth challenging.</p>
+
+    <h2>The dental denial codes you'll see most</h2>
+    <div class="tbl-wrap">
+    <table class="codes">
+      <thead><tr><th>Code</th><th>What it means (X12)</th><th>Appealable?</th><th>How to respond</th></tr></thead>
+      <tbody>
+        <tr><td class="c">CO-4</td><td>Procedure code is inconsistent with the modifier used, or a required modifier is missing.</td><td class="pill-yes">Sometimes</td><td>Add or correct the modifier; resubmit as a corrected claim.</td></tr>
+        <tr><td class="c">CO-16</td><td>Claim/service lacks information or has a billing error. Always paired with an N-series RARC that names what's missing.</td><td class="pill-yes">Often</td><td>Read the RARC, supply the missing data (NPI, tooth number, narrative), resubmit.</td></tr>
+        <tr><td class="c">CO-18</td><td>Exact duplicate claim or service.</td><td class="pill-yes">Yes*</td><td>If only one claim was truly submitted, show the submission history and appeal.</td></tr>
+        <tr><td class="c">CO-29</td><td>The time limit for filing has expired.</td><td class="pill-yes">Yes*</td><td>If it was filed within the window, prove the original filing/receipt date and appeal.</td></tr>
+        <tr><td class="c">CO-45</td><td>Charge exceeds fee schedule / maximum allowable or contracted fee arrangement.</td><td class="pill-no">No</td><td>Contractual write-off. Verify it matches your contract; <strong>do not</strong> bill the patient.</td></tr>
+        <tr><td class="c">CO-97</td><td>The benefit is included in the payment for another service already adjudicated (bundling).</td><td class="pill-yes">Sometimes</td><td>Check the bundling edit; if the service is separately payable, appeal with modifier/narrative.</td></tr>
+        <tr><td class="c">CO-109</td><td>Claim/service not covered by this payer/contractor — send to the correct payer.</td><td class="pill-no">N/A</td><td>Verify coverage and rebill the correct payer or plan.</td></tr>
+        <tr><td class="c">CO-197</td><td>Precertification / authorization / notification / pre-treatment absent.</td><td class="pill-yes">Yes*</td><td>If authorization was obtained, attach the auth number and appeal.</td></tr>
+        <tr><td class="c">PR-1</td><td>Deductible amount.</td><td class="pill-no">No</td><td>Legitimate patient responsibility — bill the patient.</td></tr>
+        <tr><td class="c">PR-2</td><td>Coinsurance amount.</td><td class="pill-no">No</td><td>Bill the patient.</td></tr>
+        <tr><td class="c">PR-3</td><td>Co-payment amount.</td><td class="pill-no">No</td><td>Bill the patient.</td></tr>
+        <tr><td class="c">PR-45</td><td>Charge exceeds fee schedule — routed to the patient.</td><td class="pill-yes">Yes*</td><td>For an in-network provider this is a balance-billing red flag; 45 should be a CO write-off. Challenge it.</td></tr>
+        <tr><td class="c">PR-204</td><td>Service/equipment/drug is not covered under the patient's current benefit plan.</td><td class="pill-yes">Sometimes</td><td>Verify benefits; may be genuine patient responsibility or a plan-loading error.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="margin-top:12px;color:var(--faint);font-size:14px">* Appealable when the payer's determination contradicts the practice's own records — the exact cases below.</p>
+
+    <h2>Which denials are actually worth working</h2>
+    <p>Not every denial is a payer error. A deductible is a deductible. The denials worth your time are the ones where <strong>the payer's determination contradicts what your own records show</strong>:</p>
+    <ul>
+      <li><strong>CO-197 with the authorization on file.</strong> The payer says auth is absent; your record shows it was obtained. Attach it and appeal.</li>
+      <li><strong>CO-29 when you filed on time.</strong> The payer says the window closed; your submission log shows it was filed inside the limit. Prove the date.</li>
+      <li><strong>CO-18 on a single submission.</strong> "Duplicate" only holds if there are two. If there's one, show it.</li>
+      <li><strong>Underpayments.</strong> The remittance paid less than your contracted allowed amount — the math is on the EOB.</li>
+      <li><strong>PR-45 / improper patient-responsibility.</strong> A contractual reduction pushed onto the patient. For in-network claims that's usually improper.</li>
+    </ul>
+    <div class="callout-box">The hardest part isn't knowing the code — it's proving your side, claim by claim, before the appeal window closes. That's exactly what <a href="/">ClaimZen</a> automates: it reads each denial, checks the code against your own records and the clearinghouse, and drafts the evidence-backed appeal for your approval when the payer is wrong.</div>
+
+    <h2>RARC remark codes: the fine print</h2>
+    <p>When you see <code>CO-16</code>, the reason you actually need is in the RARC beside it. Common N-series remark codes on dental claims include <code>N130</code> (consult plan benefit documents), <code>N522</code> (duplicate of a claim already processed), and codes pointing to a missing NPI, tooth number, surface, or narrative. Always read the RARC before you resubmit — it names the fix.</p>
+
+    <div class="faq">
+      <h2>Frequently asked questions</h2>
+      <h3>What is the difference between a CARC and a RARC?</h3>
+      <p>A CARC states <em>why</em> an amount was adjusted; a RARC supplements it with detail. CARC 16 (claim lacks information) almost always appears with one or more RARCs naming exactly what's missing.</p>
+      <h3>What does CO-197 mean on a dental claim?</h3>
+      <p>"Precertification/authorization/notification/pre-treatment absent." The payer required prior authorization and didn't find it. If auth was in fact obtained, CO-197 is appealable — attach the authorization number.</p>
+      <h3>Is CO-45 patient responsibility?</h3>
+      <p>No. Under the CO group, 45 is a contractual write-off the provider absorbs — never billed to the patient. The same reason under PR (PR-45) is a balance-billing red flag to challenge.</p>
+      <h3>Which dental denial codes should I appeal?</h3>
+      <p>The ones where your records contradict the payer: CO-197 (auth on file), CO-29 (filed on time), CO-18 (single submission), underpayments, and improper PR adjustments. Real patient-responsibility codes (PR-1, PR-2, PR-3) are billed, not appealed.</p>
+    </div>
+
+    <div class="sources">
+      <h2>Sources</h2>
+      <ol>
+        <li>X12, <a href="https://x12.org/codes/claim-adjustment-reason-codes" rel="noopener">Claim Adjustment Reason Codes</a> (the authoritative, HIPAA-mandated code set).</li>
+        <li>X12, <a href="https://x12.org/codes/remittance-advice-remark-codes" rel="noopener">Remittance Advice Remark Codes</a>.</li>
+        <li>CARC 197 description: "Precertification/authorization/notification/pre-treatment absent," per the X12 CARC list.</li>
+      </ol>
+      <p style="margin-top:12px">CARC and RARC definitions are standardized; how a given payer applies them is not. Always read the accompanying remark codes and your payer contract.</p>
+    </div>
+  </div>
+
+  <div class="article-cta">
+    <h2>Stop chasing denials by hand.</h2>
+    <p>ClaimZen reads every denial, checks the code against your own records, and drafts the appeal — with signed, verifiable proof.</p>
+    <a class="btn btn-primary" href="/#contact">Get early access</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-in">
+    <div class="foot-brand">
+      <span class="mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M26.83 14.09A11 11 0 1 1 17.91 5.17"/><path d="M12.8 10.2 16.6 14 26.5 3.2"/></svg></span>
+      <div><div class="wordmark">Claim<span class="z">Zen</span></div><div class="tag">Denials, answered.</div></div>
+    </div>
+    <nav class="foot-links" aria-label="Footer"><a href="/resources/">Resources</a><a href="/#how">How it works</a><a href="/#contact">Contact</a></nav>
+    <p class="copy">© 2026 ClaimZen. This article is general information, not billing, legal, or coding advice.</p>
+  </div>
+</footer>
+</body>
+</html>

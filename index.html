@@ -23,7 +23,67 @@
   <meta name="twitter:description" content="Evidence-backed denial recovery for dental practices and RCM teams.">
   <meta name="twitter:image" content="https://claimzen.ai/og.jpg">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"ClaimZen","applicationCategory":"BusinessApplication","description":"Evidence-backed denial recovery for dental practices and revenue-cycle teams.","url":"https://claimzen.ai","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://claimzen.ai/#org",
+        "name": "ClaimZen",
+        "url": "https://claimzen.ai/",
+        "logo": "https://claimzen.ai/og.jpg",
+        "slogan": "Denials, answered.",
+        "email": "dj@codetestcode.io",
+        "knowsAbout": [
+          "dental insurance claim denials",
+          "dental revenue cycle management",
+          "denial management",
+          "insurance claim appeals",
+          "CARC and RARC denial codes",
+          "timely filing limits",
+          "prior authorization denials",
+          "claim underpayments and downcoding",
+          "explanation of benefits (EOB / ERA)",
+          "clearinghouse eligibility (270/271) and claim status (276/277)",
+          "accounts receivable recovery",
+          "dental billing"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://claimzen.ai/#site",
+        "url": "https://claimzen.ai/",
+        "name": "ClaimZen",
+        "publisher": { "@id": "https://claimzen.ai/#org" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://claimzen.ai/#app",
+        "name": "ClaimZen",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Evidence-backed denial recovery for dental practices, groups, DSOs, and revenue-cycle teams. ClaimZen reads every payer denial, checks it against the practice's own records and the clearinghouse across eight verification checks, and — when the payer is wrong — drafts an evidence-backed appeal for one-click human approval. Every case produces a signed, tamper-evident evidence record that verifies offline. Nothing is sent to a payer without human sign-off.",
+        "url": "https://claimzen.ai/",
+        "publisher": { "@id": "https://claimzen.ai/#org" },
+        "offers": {
+          "@type": "Offer",
+          "description": "Contingency pricing — a share of what ClaimZen recovers. The practice pays only when it gets paid. Contact for details.",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://claimzen.ai/#faq",
+        "mainEntity": [
+          {"@type":"Question","name":"What is ClaimZen?","acceptedAnswer":{"@type":"Answer","text":"ClaimZen is evidence-backed denial-recovery software for dental practices and revenue-cycle teams. It reads every payer denial, checks it against your own records, and — when the payer is wrong — drafts the appeal with signed, verifiable proof."}},
+          {"@type":"Question","name":"Does ClaimZen send appeals to payers automatically?","acceptedAnswer":{"@type":"Answer","text":"No. Every appeal waits for a human to review and approve it. Nothing is sent to a payer without your one-click sign-off."}},
+          {"@type":"Question","name":"How much do dental practices lose to denied claims?","acceptedAnswer":{"@type":"Answer","text":"The average dental practice loses $50,000 to $120,000 a year to denied claims, and roughly 67% of denied claims are never resubmitted — permanent lost revenue."}},
+          {"@type":"Question","name":"What kinds of denials can ClaimZen appeal?","acceptedAnswer":{"@type":"Answer","text":"Eight verification checks: prior-authorization denials, timely-filing denials, exact duplicates, underpayments, patient-responsibility (balance-billing) errors, and invalid or implausible CARC codes — verified against the provider's own records, the clearinghouse, and the CARC standard."}},
+          {"@type":"Question","name":"How does ClaimZen prove a denial is wrong?","acceptedAnswer":{"@type":"Answer","text":"Every case produces a signed, tamper-evident evidence record — the payer's letter, your records, and the verdict — that verifies offline without trusting ClaimZen. Receipts, not claims."}}
+        ]
+      }
+    ]
+  }
   </script>
 </head>
 <body>
@@ -37,7 +97,7 @@
   <nav class="nav-links" aria-label="Primary">
     <a href="#how">How it works</a>
     <a href="#why">Why ClaimZen</a>
-    <a href="#who">Who it's for</a>
+    <a href="/resources/">Resources</a>
     <a class="btn btn-primary btn-sm" href="#contact">Get early access</a>
   </nav>
 </header>
@@ -204,7 +264,7 @@
     </div>
     <nav class="foot-links" aria-label="Footer">
       <a href="#how">How it works</a>
-      <a href="#why">Why ClaimZen</a>
+      <a href="/resources/">Resources</a>
       <a href="#contact">Contact</a>
       <a href="/investors/" rel="nofollow">Investors &amp; press</a>
     </nav>
