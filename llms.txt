@@ -21,7 +21,22 @@ Website: https://claimzen.ai — contact via the form on the page, or email dj@c
 
 ## Category
 
-ClaimZen is **denial-recovery software** for the dental revenue cycle: it sits on the practice's denial correspondence, after adjudication, and turns wrongful denials into evidence-backed appeals. It complements practice-management systems (PMS) and clearinghouses; it does not replace them. Beachhead is dental; the same engine extends to broader medical RCM.
+ClaimZen is **denial-recovery software** for the dental revenue cycle: it sits on the practice's denial correspondence, after adjudication, and turns wrongful denials into evidence-backed appeals. It works alongside clearinghouses and any practice-management system — and ClaimZen also offers its own **free, AI-native PMS, ClaimZen Practice** (below), on the same signed kernel. Beachhead is dental; the same engine extends to broader medical RCM.
+
+## ClaimZen Practice — the free AI-native PMS
+
+ClaimZen Practice (https://claimzen.ai/practice/) is a **free** dental practice management system built on the same deterministic, cryptographically **signed truth plane** as ClaimZen. It is a *system of intelligence*, not just a system of record: every clinical, financial, and scheduling action is an immutable signed event, and every metric on the decision desk drills to its source and verifies offline.
+
+- Free for the practice. Revenue comes from ClaimZen denial recovery (contingency) and premium add-ons, so the software pays for itself out of money the practice was already losing.
+- A **signed, tamper-evident chart**: the record and the evidence are the same object — provable months later without trusting ClaimZen.
+- A **decision desk**, not data entry: it leads with revenue at risk, unscheduled treatment, radiographs to read, and denials to work — every figure drilling to signed events.
+- **Four AI coprocessors, every one propose-only** (the model reads, codes, and drafts; a licensed human signs before anything becomes a fact; each proposal passes a deterministic gate grounded in the record):
+  - **Ambient scribe** — operatory transcript → structured clinical note + coded procedures, each grounded in a verbatim phrase from the transcript.
+  - **Imaging read** — radiograph → tooth-level findings (caries, bone loss) on valid teeth and surfaces. A second read, never an auto-diagnosis; the clinician is the read of record.
+  - **Chart-to-claim** — charted facts → an assembled claim, coding only what was charted with the charge equal to the summed fees. A claim that defends itself.
+  - **Appeal drafting** — a denial → an evidence-backed appeal citing the claim, the code, and the record that refutes it (ClaimZen recovery, built in).
+- **Two signed pipelines**: radiograph → imaging read → signed findings → treatment plan → acceptance → schedule; and chart → chart-to-claim → claim → denial → appeal.
+- **DSO scale, proven**: stress-tested on a synthetic 1,700-location corpus — 1.15M events folded, every one of 20,557 invariants held (metric-vs-oracle agreement, conservation, worklist reconciliation, roll-up recombination, ledger verification, provenance) with zero violations. Group metrics roll up on one canonical definition (net collection recombined, not averaged).
 
 ## Pricing
 

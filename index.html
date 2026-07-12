@@ -46,7 +46,14 @@
           "explanation of benefits (EOB / ERA)",
           "clearinghouse eligibility (270/271) and claim status (276/277)",
           "accounts receivable recovery",
-          "dental billing"
+          "dental billing",
+          "dental practice management software (PMS)",
+          "AI-native dental PMS",
+          "ambient clinical documentation (dental scribe)",
+          "dental imaging AI (caries and bone-loss detection)",
+          "chart-to-claim coding",
+          "dental treatment planning",
+          "DSO decision support and metric roll-up"
         ]
       },
       {
@@ -72,6 +79,17 @@
         }
       },
       {
+        "@type": "SoftwareApplication",
+        "@id": "https://claimzen.ai/practice/#app",
+        "name": "ClaimZen Practice",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web",
+        "description": "ClaimZen Practice is a free, AI-native dental practice management system on the same signed truth plane as ClaimZen. Every clinical, financial, and scheduling action is an immutable signed event; every metric drills to its source and verifies offline. Four AI coprocessors — ambient scribe, imaging read, chart-to-claim coding, and appeal drafting — propose; a licensed human signs before anything becomes a fact.",
+        "url": "https://claimzen.ai/practice/",
+        "publisher": { "@id": "https://claimzen.ai/#org" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Free for the practice; revenue comes from ClaimZen denial recovery and premium add-ons." }
+      },
+      {
         "@type": "FAQPage",
         "@id": "https://claimzen.ai/#faq",
         "mainEntity": [
@@ -79,7 +97,9 @@
           {"@type":"Question","name":"Does ClaimZen send appeals to payers automatically?","acceptedAnswer":{"@type":"Answer","text":"No. Every appeal waits for a human to review and approve it. Nothing is sent to a payer without your one-click sign-off."}},
           {"@type":"Question","name":"How much do dental practices lose to denied claims?","acceptedAnswer":{"@type":"Answer","text":"The average dental practice loses $50,000 to $120,000 a year to denied claims, and roughly 67% of denied claims are never resubmitted — permanent lost revenue."}},
           {"@type":"Question","name":"What kinds of denials can ClaimZen appeal?","acceptedAnswer":{"@type":"Answer","text":"Eight verification checks: prior-authorization denials, timely-filing denials, exact duplicates, underpayments, patient-responsibility (balance-billing) errors, and invalid or implausible CARC codes — verified against the provider's own records, the clearinghouse, and the CARC standard."}},
-          {"@type":"Question","name":"How does ClaimZen prove a denial is wrong?","acceptedAnswer":{"@type":"Answer","text":"Every case produces a signed, tamper-evident evidence record — the payer's letter, your records, and the verdict — that verifies offline without trusting ClaimZen. Receipts, not claims."}}
+          {"@type":"Question","name":"How does ClaimZen prove a denial is wrong?","acceptedAnswer":{"@type":"Answer","text":"Every case produces a signed, tamper-evident evidence record — the payer's letter, your records, and the verdict — that verifies offline without trusting ClaimZen. Receipts, not claims."}},
+          {"@type":"Question","name":"What is ClaimZen Practice?","acceptedAnswer":{"@type":"Answer","text":"ClaimZen Practice is a free, AI-native dental practice management system (PMS) built on the same signed truth plane as ClaimZen. It runs charting, scheduling, claims, and a decision desk where four AI coprocessors — ambient scribe, imaging read, chart-to-claim coding, and appeal drafting — propose, and a human signs. Every number drills to a signed source event."}},
+          {"@type":"Question","name":"Does the ClaimZen Practice AI diagnose or bill on its own?","acceptedAnswer":{"@type":"Answer","text":"No. Every coprocessor only proposes; nothing becomes a fact until a human signs it. The imaging read is a second read, never an auto-diagnosis, and no claim is submitted without a biller's approval."}}
         ]
       }
     ]
@@ -97,6 +117,7 @@
   <nav class="nav-links" aria-label="Primary">
     <a href="#how">How it works</a>
     <a href="#why">Why ClaimZen</a>
+    <a href="/practice/">Practice</a>
     <a href="/resources/">Resources</a>
     <a class="btn btn-primary btn-sm" href="#contact">Get early access</a>
   </nav>
@@ -184,6 +205,24 @@
     </div>
   </section>
 
+  <!-- ECOSYSTEM -->
+  <section class="section" id="practice">
+    <div class="wrap">
+      <p class="kicker reveal">The ecosystem</p>
+      <h2 class="reveal">And now — the whole practice.</h2>
+      <p class="section-lede reveal">ClaimZen recovers your denials. <strong>ClaimZen Practice</strong> — a free, AI-native dental PMS on the same signed kernel — runs the whole practice: charting, scheduling, claims, and a decision desk where four AI coprocessors propose and a human signs. The record and the evidence become the same object.</p>
+      <div class="hero-media reveal" style="margin-top:44px">
+        <div class="browser tall">
+          <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">practice.claimzen.ai</span></div>
+          <img src="/media/pms/02-desk-light.png" alt="The ClaimZen Practice decision desk — a strip of canonical metrics, a ranked Revenue-at-risk worklist, and the AI coprocessor sections, every figure drilling to a signed source event." loading="lazy" width="1440" height="1200">
+        </div>
+      </div>
+      <div class="cta-row reveal" style="justify-content:center;margin-top:40px">
+        <a class="btn btn-primary" href="/practice/">Explore ClaimZen Practice <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
   <!-- WHO -->
   <section class="section" id="who">
     <div class="wrap who">
@@ -263,6 +302,7 @@
     </div>
     <nav class="foot-links" aria-label="Footer">
       <a href="#how">How it works</a>
+      <a href="/practice/">Practice</a>
       <a href="/resources/">Resources</a>
       <a href="#contact">Contact</a>
       <a href="/investors/" rel="nofollow">Investors &amp; press</a>
