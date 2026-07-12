@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to Read a Dental EOB / ERA: A Field-by-Field Guide (2026) — ClaimZen</title>
+  <meta name="description" content="A plain-English guide to reading a dental Explanation of Benefits (EOB) and electronic remittance (ERA/835): billed charge, allowed amount, plan paid, patient responsibility, contractual write-off, and the CARC/RARC codes — and how to spot denials and underpayments.">
+  <link rel="canonical" href="https://claimzen.ai/resources/how-to-read-a-dental-eob/">
+  <meta name="theme-color" content="#f7fbfa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#04140f" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="ClaimZen">
+  <meta property="og:title" content="How to Read a Dental EOB / ERA: A Field-by-Field Guide">
+  <meta property="og:description" content="What every field on a dental EOB means — and how to spot denials and underpayments at a glance.">
+  <meta property="og:url" content="https://claimzen.ai/resources/how-to-read-a-dental-eob/">
+  <meta property="og:image" content="https://claimzen.ai/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {"@type":"Article","headline":"How to Read a Dental EOB / ERA: A Field-by-Field Guide","description":"A field-by-field guide to reading a dental Explanation of Benefits and electronic remittance, and spotting denials and underpayments.","author":{"@type":"Organization","name":"ClaimZen","url":"https://claimzen.ai/"},"publisher":{"@type":"Organization","name":"ClaimZen","logo":{"@type":"ImageObject","url":"https://claimzen.ai/og.jpg"}},"datePublished":"2026-07-12","dateModified":"2026-07-12","mainEntityOfPage":"https://claimzen.ai/resources/how-to-read-a-dental-eob/","about":["EOB","ERA","835 remittance","dental billing","denial management"]},
+      {"@type":"BreadcrumbList","itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://claimzen.ai/"},
+        {"@type":"ListItem","position":2,"name":"Resources","item":"https://claimzen.ai/resources/"},
+        {"@type":"ListItem","position":3,"name":"How to read a dental EOB","item":"https://claimzen.ai/resources/how-to-read-a-dental-eob/"}]},
+      {"@type":"FAQPage","mainEntity":[
+        {"@type":"Question","name":"What is the difference between an EOB and an ERA?","acceptedAnswer":{"@type":"Answer","text":"An EOB (Explanation of Benefits) is the human-readable statement showing how a claim was processed. An ERA (Electronic Remittance Advice), delivered as the X12 835 transaction, is the electronic, machine-readable version that posts automatically to the practice-management system. They carry the same information — billed, allowed, paid, patient responsibility, and the adjustment (CARC/RARC) codes."}},
+        {"@type":"Question","name":"What is the 'allowed amount' on a dental EOB?","acceptedAnswer":{"@type":"Answer","text":"The allowed amount is the maximum the plan recognizes for a procedure — the contracted fee for in-network providers. The plan pays its share of the allowed amount; the patient owes any deductible, coinsurance, or copay; and the difference between your billed charge and the allowed amount is a contractual write-off for in-network claims."}},
+        {"@type":"Question","name":"How do I spot an underpayment on an EOB?","acceptedAnswer":{"@type":"Answer","text":"Compare the plan-paid amount plus legitimate patient responsibility to the allowed (contracted) amount for the procedure. If the total falls short of the contracted rate — with no valid reason — the claim was underpaid. Also watch for a procedure paid at a lower code (downcoding) than the one submitted."}}
+      ]}
+    ]
+  }
+  </script>
+</head>
+<body>
+<header class="nav" id="nav">
+  <a class="brand" href="/" aria-label="ClaimZen home">
+    <span class="mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M26.83 14.09A11 11 0 1 1 17.91 5.17"/><path d="M12.8 10.2 16.6 14 26.5 3.2"/></svg></span>
+    <span class="wordmark">Claim<span class="z">Zen</span></span>
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="/resources/">Resources</a><a href="/#how">How it works</a>
+    <a class="btn btn-primary btn-sm" href="/#contact">Get early access</a>
+  </nav>
+</header>
+<main class="article">
+  <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> › <a href="/resources/">Resources</a> › How to read a dental EOB</nav>
+  <h1>How to read a dental EOB (and the ERA behind it)</h1>
+  <p class="dek">Every denial and every underpayment is spelled out on the remittance — if you know which fields to read and which codes to trust.</p>
+  <p class="byline">By ClaimZen · Updated July 2026 · ~6 min read</p>
+  <div class="prose">
+    <p>The <strong>EOB</strong> (Explanation of Benefits) is the payer's account of what it did with a claim. Its electronic twin, the <strong>ERA</strong> — delivered as the X12 <code>835</code> transaction — carries the same information and posts automatically to your practice-management system. Learn to read the columns and you can spot a denial or an underpayment in seconds.</p>
+
+    <h2>The fields that matter</h2>
+    <div class="tbl-wrap">
+    <table class="codes">
+      <thead><tr><th>Field</th><th>What it is</th></tr></thead>
+      <tbody>
+        <tr><td class="c">Billed / Submitted</td><td>The fee you charged for the procedure.</td></tr>
+        <tr><td class="c">Allowed</td><td>The maximum the plan recognizes — your contracted fee, in-network. Everything else keys off this number.</td></tr>
+        <tr><td class="c">Plan paid</td><td>The plan's share of the allowed amount, after patient responsibility.</td></tr>
+        <tr><td class="c">Deductible / Coinsurance / Copay</td><td>The patient's share (CARC PR-1 / PR-2 / PR-3).</td></tr>
+        <tr><td class="c">Contractual write-off</td><td>Billed minus allowed, for in-network claims (CARC CO-45). Not billable to the patient.</td></tr>
+        <tr><td class="c">Adjustment codes</td><td>The CARC (reason) and RARC (remark) codes explaining any reduction or denial.</td></tr>
+        <tr><td class="c">Patient responsibility</td><td>What you may bill the patient — deductible, coinsurance, copay, and non-covered amounts only.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>The arithmetic is simple and always holds: <strong>Billed = Plan paid + Patient responsibility + Contractual write-off + any denied amount.</strong> When those don't reconcile to your contracted allowed amount, something is off.</p>
+
+    <h2>How to spot a denial</h2>
+    <p>A denial is a line where the plan paid <strong>zero</strong> and a CARC explains why. Read the group code first (<code>CO</code>, <code>PR</code>, <code>OA</code>, <code>PI</code>), then the reason: <code>CO-197</code> (authorization absent), <code>CO-29</code> (timely filing), <code>CO-18</code> (duplicate), <code>CO-16</code> (missing info — check the RARC). Our <a href="/resources/dental-claim-denial-codes/">denial-codes reference</a> covers each.</p>
+
+    <h2>How to spot an underpayment</h2>
+    <p>Underpayments hide in "paid" claims. Compare <strong>plan paid + legitimate patient responsibility</strong> against the <strong>allowed (contracted) amount</strong>. A shortfall with no valid reason is money owed. Also watch for a procedure paid at a lower code than you submitted — that's <a href="/resources/dental-claim-underpayments-downcoding/">downcoding</a>. And watch the group code on reason 45: as <code>PR-45</code> on an in-network claim, it's a <a href="/resources/balance-billing-pr-45/">balance-billing red flag</a>.</p>
+    <div class="callout-box"><a href="/">ClaimZen</a> reads every EOB and 835 the way this guide describes — reconciling paid against contracted, checking each code against your own records, and flagging the denials and underpayments worth appealing. Nothing is sent without your approval.</div>
+
+    <div class="faq">
+      <h2>Frequently asked questions</h2>
+      <h3>What is the difference between an EOB and an ERA?</h3>
+      <p>An EOB is the human-readable statement; an ERA (the X12 835) is the electronic version that auto-posts. Same information — billed, allowed, paid, patient responsibility, and the CARC/RARC codes.</p>
+      <h3>What is the "allowed amount"?</h3>
+      <p>The maximum the plan recognizes for a procedure — your contracted fee, in-network. The plan pays its share of it; the patient owes cost-sharing; the rest is a contractual write-off.</p>
+      <h3>How do I spot an underpayment?</h3>
+      <p>Compare plan paid plus legitimate patient responsibility to the allowed amount. A shortfall with no valid reason is an underpayment. Watch for downcoding too.</p>
+    </div>
+
+    <div class="sources">
+      <h2>Sources</h2>
+      <ol>
+        <li>X12, <a href="https://x12.org/codes/claim-adjustment-reason-codes" rel="noopener">Claim Adjustment Reason Codes</a> and the 835 Health Care Claim Payment/Advice transaction.</li>
+      </ol>
+      <p style="margin-top:12px">General information, not billing, legal, or coding advice. EOB layouts vary by payer.</p>
+    </div>
+  </div>
+  <div class="article-cta">
+    <h2>Let the remittance read itself.</h2>
+    <p>ClaimZen reconciles every EOB against your contract and surfaces what to appeal.</p>
+    <a class="btn btn-primary" href="/#contact">Get early access</a>
+  </div>
+</main>
+<footer class="footer">
+  <div class="wrap footer-in">
+    <div class="foot-brand"><span class="mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M26.83 14.09A11 11 0 1 1 17.91 5.17"/><path d="M12.8 10.2 16.6 14 26.5 3.2"/></svg></span><div><div class="wordmark">Claim<span class="z">Zen</span></div><div class="tag">Denials, answered.</div></div></div>
+    <nav class="foot-links" aria-label="Footer"><a href="/resources/">Resources</a><a href="/#how">How it works</a><a href="/#contact">Contact</a></nav>
+    <p class="copy">© 2026 ClaimZen. General information, not billing, legal, or coding advice.</p>
+  </div>
+</footer>
+</body>
+</html>
