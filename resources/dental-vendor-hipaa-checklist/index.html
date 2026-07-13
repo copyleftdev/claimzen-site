@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What to Ask a Dental RCM or PMS Vendor About HIPAA: A Buyer's Checklist (2026) — ClaimZen</title>
+  <meta name="description" content="Before you hand a vendor your patients' PHI, these are the HIPAA questions that separate real safeguards from a compliance badge on a marketing page — the BAA, subcontractors, encryption, audit trails, AI, and breach response.">
+  <link rel="canonical" href="https://claimzen.ai/resources/dental-vendor-hipaa-checklist/">
+  <meta name="theme-color" content="#f7fbfa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#04140f" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="ClaimZen">
+  <meta property="og:title" content="What to Ask a Dental RCM or PMS Vendor About HIPAA">
+  <meta property="og:description" content="A practical buyer's checklist for vetting the HIPAA posture of any vendor that will hold your practice's PHI.">
+  <meta property="og:url" content="https://claimzen.ai/resources/dental-vendor-hipaa-checklist/">
+  <meta property="og:image" content="https://claimzen.ai/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"Article","headline":"What to Ask a Dental RCM or PMS Vendor About HIPAA","description":"A practical buyer's checklist for vetting the HIPAA posture of any vendor that will hold your practice's PHI.","author":{"@type":"Organization","name":"ClaimZen","url":"https://claimzen.ai/"},"publisher":{"@type":"Organization","name":"ClaimZen","logo":{"@type":"ImageObject","url":"https://claimzen.ai/og.jpg"}},"datePublished":"2026-07-13","dateModified":"2026-07-13","mainEntityOfPage":"https://claimzen.ai/resources/dental-vendor-hipaa-checklist/","about":["HIPAA", "business associate", "vendor risk", "dental RCM", "PMS", "due diligence"]},
+    {"@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://claimzen.ai/"},
+      {"@type":"ListItem","position":2,"name":"Resources","item":"https://claimzen.ai/resources/"},
+      {"@type":"ListItem","position":3,"name":"Vendor HIPAA checklist","item":"https://claimzen.ai/resources/dental-vendor-hipaa-checklist/"}]},
+    {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is 'HIPAA compliant' a meaningful claim from a vendor?","acceptedAnswer":{"@type":"Answer","text":"On its own, no. There is no official HIPAA certification, so 'HIPAA compliant' is a self-assertion. What matters is whether the vendor will sign a BAA, how they actually protect PHI, and whether they can prove it \u2014 which is what a real checklist tests."}},{"@type":"Question","name":"What is the single most important question to ask?","acceptedAnswer":{"@type":"Answer","text":"Will you sign a Business Associate Agreement before we share any PHI? A vendor that hesitates or refuses cannot lawfully handle your PHI, and that alone is disqualifying."}},{"@type":"Question","name":"Should a vendor have SOC 2 or HITRUST?","acceptedAnswer":{"@type":"Answer","text":"Those are meaningful third-party assessments and a good signal, especially SOC 2 Type II. But they are not the same as 'HIPAA certified' (which does not exist), and they do not replace a BAA. Ask what the report actually covers and its date."}}]}
+  ]}
+  </script>
+</head>
+<body>
+<header class="nav" id="nav">
+  <a class="brand" href="/" aria-label="ClaimZen home">
+    <span class="cz-logo" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -113 781 128" aria-hidden="true" focusable="false">
+  <g class="wm-claim" fill="var(--ink,currentColor)">
+    <path d="M787 -20C1192 -20 1419 260 1446 526H1089C1064 381 954 290 794 290C580 290 443 445 443 744C443 1033 577 1200 796 1200C956 1200 1065 1109 1088 964H1445C1404 1311 1141 1510 787 1510C390 1510 82 1236 82 744C82 255 384 -20 787 -20Z" transform="translate(0.00 0) scale(0.06711 -0.06711)"/>
+    <path d="M464 1490H115V0H464Z" transform="translate(100.57 0) scale(0.06711 -0.06711)"/>
+    <path d="M428 -20C583 -20 691 42 752 157H761V0H1089V759C1089 999 870 1132 592 1132C312 1132 136 1001 92 810L408 769C427 839 492 884 589 884C684 884 741 840 741 763V759C741 690 665 676 476 660C250 641 60 558 60 310C60 89 213 -20 428 -20ZM534 211C450 211 390 251 390 326C390 400 448 444 551 459C616 469 704 484 744 505V398C744 288 651 211 534 211Z" transform="translate(137.84 0) scale(0.06711 -0.06711)"/>
+    <path d="M115 0H464V1118H115ZM289 1249C389 1249 470 1324 470 1417C470 1510 389 1585 289 1585C190 1585 109 1510 109 1417C109 1324 190 1249 289 1249Z" transform="translate(217.07 0) scale(0.06711 -0.06711)"/>
+    <path d="M115 0H464V664C464 781 531 848 626 848C719 848 782 783 782 680V0H1117V671C1117 778 1178 848 1277 848C1369 848 1435 788 1435 675V0H1783V754C1783 990 1634 1133 1425 1133C1274 1133 1130 1057 1062 874C1007 1057 916 1133 774 1133C639 1133 514 1064 452 896L436 1118H115Z" transform="translate(254.34 0) scale(0.06711 -0.06711)"/>
+  </g>
+  <g class="wm-zen" fill="var(--accent,#12a594)">
+    <path d="M109 0H1282V288H835C733 288 632 288 531 283C596 357 659 431 713 504L1281 1287V1490H108V1202H580C673 1202 765 1202 858 1206C797 1138 738 1069 688 1000L109 202Z" transform="translate(380.14 0) scale(0.06711 -0.06711)"/>
+    <path d="M636 -21C907 -21 1090 102 1146 296L835 347C807 272 736 232 642 232C510 232 421 312 415 474H1162V562C1162 931 937 1132 623 1132C287 1132 72 900 72 555C72 197 285 -21 636 -21ZM417 677C430 800 503 879 626 879C748 879 817 804 831 677Z" transform="translate(471.78 0) scale(0.06711 -0.06711)"/>
+    <path d="M464 638C464 768 541 845 655 845C769 845 837 770 837 644V0H1186V712C1186 965 1033 1132 799 1132C618 1132 508 1032 449 877L443 1118H115V0H464Z" transform="translate(552.68 0) scale(0.06711 -0.06711)"/>
+  </g>
+  <g class="wm-enso" fill="none" stroke="var(--accent,#12a594)"><g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="7.6"><path d="M 761.3 -48.2 A 53 53 0 1 1 742.4 -90.6"/><path d="M 675.3 -55.0 L 693.3 -38.0 L 750.3 -97.0"/></g></g>
+</svg></span>
+    
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="/resources/">Resources</a><a href="/#how">How it works</a>
+    <a class="btn btn-primary btn-sm" href="/#contact">Get early access</a>
+  </nav>
+</header>
+<main class="article">
+  <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/resources/">Resources</a> &rsaquo; Vendor HIPAA checklist</nav>
+  <h1>What to ask a dental RCM or PMS vendor about HIPAA</h1>
+  <p class="dek">Before you hand a vendor your patients&rsquo; PHI, these are the questions that separate real safeguards from a &ldquo;HIPAA compliant&rdquo; line on a slide.</p>
+  <p class="byline">By ClaimZen &middot; Updated July 2026 &middot; ~7 min read</p>
+  <div class="prose">
+    <p>When you sign up a billing service, a practice-management system, a clearinghouse, or an AI scheduling tool, you are choosing a <strong>business associate</strong> — a company that will create, receive, store, or transmit your patients&rsquo; protected health information (PHI). The sales deck will say &ldquo;HIPAA compliant.&rdquo; That phrase, by itself, means almost nothing: there is no HIPAA certification to earn (see our note in <a href="/resources/hipaa-compliance-by-design/">HIPAA compliance by design</a>). Here is what to actually ask — and what a good answer sounds like.</p>
+
+    <h2>1. The BAA — non-negotiable, ask first</h2>
+    <p>&ldquo;Will you sign a Business Associate Agreement before we share any PHI?&rdquo; If the answer is anything but a clear yes, stop there. Then read it: does it flow obligations down to their <strong>subcontractors</strong>, set a breach-notification timeline, and require your data to be returned or destroyed when you leave? A BAA is a legal prerequisite, not a formality — more in <a href="/resources/business-associate-agreements-dental/">our BAA guide</a>.</p>
+
+    <h2>2. Where does our data live, and who can touch it?</h2>
+    <p>Ask which subprocessors they use (each needs its own BAA), where the data is hosted, whether any access is offshore, and how employee access is limited to least-privilege. &ldquo;Everyone on support can see everything&rdquo; is a red flag.</p>
+
+    <h2>3. How is PHI protected at rest and in transit?</h2>
+    <p>You want encryption in transit (TLS) and at rest as table stakes, plus a sensible answer on <strong>key management</strong>. Vague answers here usually mean the controls are vague too.</p>
+
+    <h2>4. Prove the audit trail</h2>
+    <p>&ldquo;For any given record, can you show me a complete history of who did what and when — and could an administrator alter that log?&rdquo; Most systems can produce a log; few can prove it wasn&rsquo;t edited. A <strong>tamper-evident</strong> trail is the strong answer (we go deep on this in <a href="/resources/hipaa-audit-trails-tamper-evidence/">audit trails &amp; tamper-evidence</a>).</p>
+
+    <h2>5. What does your AI do with our PHI?</h2>
+    <p>If the tool uses AI, ask three things: Do you <strong>train</strong> on our data? Can the model take <strong>actions</strong> or make decisions on its own? Can we <strong>audit</strong> what it saw and proposed? &ldquo;The AI drafts, a human approves, and every step is logged&rdquo; is good; &ldquo;the AI just handles it&rdquo; is not (see <a href="/resources/ai-and-phi-hipaa/">AI and PHI</a>).</p>
+
+    <h2>6. Breach history and response</h2>
+    <p>Ask whether they&rsquo;ve had a reportable breach, what their notification process and timeline are, and whether they carry cyber-liability insurance. You want a specific, rehearsed answer — not a pause.</p>
+
+    <h2>7. Certifications — what does the badge mean?</h2>
+    <p>SOC 2 Type II and HITRUST are real, useful third-party assessments. &ldquo;HIPAA certified&rdquo; is not a real credential. Ask what any badge actually covers, and when it was last assessed.</p>
+
+    <h2>8. Getting your data back</h2>
+    <p>&ldquo;If we leave, how do we get our data, in what format, and can we verify it&rsquo;s complete?&rdquo; Exit terms reveal how a vendor really thinks about your ownership of the record.</p>
+
+    <div class="tbl-wrap">
+    <table class="codes">
+      <thead><tr><th>Ask</th><th>Why it matters</th><th>A good answer sounds like</th></tr></thead>
+      <tbody>
+        <tr><td class="c">Will you sign a BAA?</td><td>Legally required before sharing PHI.</td><td>&ldquo;Yes, here it is&rdquo; — with subcontractor flow-down and breach terms.</td></tr>
+        <tr><td class="c">Who can access our data?</td><td>Minimum-necessary / access control.</td><td>Role-based, least-privilege, logged, no blanket offshore access.</td></tr>
+        <tr><td class="c">Can the audit log be altered?</td><td>Integrity &amp; audit controls (&sect;164.312).</td><td>Append-only and cryptographically verifiable — provable, not asserted.</td></tr>
+        <tr><td class="c">What does the AI do with PHI?</td><td>Autonomy &amp; training are the risk.</td><td>Propose-only, human-approved, auditable, no training on your data.</td></tr>
+        <tr><td class="c">Breach process?</td><td>Breach Notification Rule.</td><td>A specific timeline, a named contact, and insurance.</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="callout-box">ClaimZen is built to answer this list without hedging: a signed BAA, a hash-chained audit trail an administrator can&rsquo;t rewrite, an AI that only proposes, per-practice tenant isolation, and case evidence you can verify offline. See <a href="/resources/hipaa-compliance-by-design/">how the architecture does it</a>.</div>
+
+    <div class="faq">
+      <h2>Frequently asked questions</h2>
+      <h3>Is &ldquo;HIPAA compliant&rdquo; a meaningful claim from a vendor?</h3>
+      <p>On its own, no — there&rsquo;s no official HIPAA certification, so it&rsquo;s a self-assertion. What matters is a signed BAA, real safeguards, and the ability to prove them.</p>
+      <h3>What&rsquo;s the single most important question?</h3>
+      <p>&ldquo;Will you sign a BAA before we share PHI?&rdquo; A no makes everything else moot.</p>
+      <h3>Should a vendor have SOC 2 or HITRUST?</h3>
+      <p>They&rsquo;re a good signal (SOC 2 Type II especially), but they don&rsquo;t replace a BAA and aren&rsquo;t the same as being &ldquo;HIPAA certified.&rdquo; Ask what the report covers and its date.</p>
+    </div>
+    <div class="sources">
+      <h2>Sources</h2>
+      <ol>
+        <li>HHS, Business Associate Contracts, 45 CFR &sect;164.502(e) and &sect;164.308(b).</li>
+        <li>HHS, HIPAA Security Rule technical safeguards, 45 CFR &sect;164.312.</li>
+        <li>HHS Office for Civil Rights: HHS does not certify HIPAA compliance.</li>
+        <li>HHS, Breach Notification Rule, 45 CFR &sect;&sect;164.400&ndash;414.</li>
+        <li>ClaimZen, <a href="/resources/hipaa-compliance-by-design/">HIPAA compliance by design</a> and <a href="/architecture/">system architecture</a>.</li>
+      </ol>
+      <p style="margin-top:12px">General information, not legal or compliance advice. HIPAA obligations depend on your organization, your data, and your contracts &mdash; consult your privacy/security officer and counsel.</p>
+    </div>
+  </div>
+  <div class="article-cta">
+    <h2>A vendor built to pass this checklist.</h2>
+    <p>ClaimZen answers every question below by design — a signed BAA, a tamper-evident audit trail, a contained AI, and evidence you can verify yourself.</p>
+    <a class="btn btn-primary" href="/#contact">Get early access</a>
+  </div>
+</main>
+<footer class="footer">
+  <div class="wrap footer-in">
+    <div class="foot-brand"><span class="cz-logo" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -113 781 128" aria-hidden="true" focusable="false">
+  <g class="wm-claim" fill="var(--ink,currentColor)">
+    <path d="M787 -20C1192 -20 1419 260 1446 526H1089C1064 381 954 290 794 290C580 290 443 445 443 744C443 1033 577 1200 796 1200C956 1200 1065 1109 1088 964H1445C1404 1311 1141 1510 787 1510C390 1510 82 1236 82 744C82 255 384 -20 787 -20Z" transform="translate(0.00 0) scale(0.06711 -0.06711)"/>
+    <path d="M464 1490H115V0H464Z" transform="translate(100.57 0) scale(0.06711 -0.06711)"/>
+    <path d="M428 -20C583 -20 691 42 752 157H761V0H1089V759C1089 999 870 1132 592 1132C312 1132 136 1001 92 810L408 769C427 839 492 884 589 884C684 884 741 840 741 763V759C741 690 665 676 476 660C250 641 60 558 60 310C60 89 213 -20 428 -20ZM534 211C450 211 390 251 390 326C390 400 448 444 551 459C616 469 704 484 744 505V398C744 288 651 211 534 211Z" transform="translate(137.84 0) scale(0.06711 -0.06711)"/>
+    <path d="M115 0H464V1118H115ZM289 1249C389 1249 470 1324 470 1417C470 1510 389 1585 289 1585C190 1585 109 1510 109 1417C109 1324 190 1249 289 1249Z" transform="translate(217.07 0) scale(0.06711 -0.06711)"/>
+    <path d="M115 0H464V664C464 781 531 848 626 848C719 848 782 783 782 680V0H1117V671C1117 778 1178 848 1277 848C1369 848 1435 788 1435 675V0H1783V754C1783 990 1634 1133 1425 1133C1274 1133 1130 1057 1062 874C1007 1057 916 1133 774 1133C639 1133 514 1064 452 896L436 1118H115Z" transform="translate(254.34 0) scale(0.06711 -0.06711)"/>
+  </g>
+  <g class="wm-zen" fill="var(--accent,#12a594)">
+    <path d="M109 0H1282V288H835C733 288 632 288 531 283C596 357 659 431 713 504L1281 1287V1490H108V1202H580C673 1202 765 1202 858 1206C797 1138 738 1069 688 1000L109 202Z" transform="translate(380.14 0) scale(0.06711 -0.06711)"/>
+    <path d="M636 -21C907 -21 1090 102 1146 296L835 347C807 272 736 232 642 232C510 232 421 312 415 474H1162V562C1162 931 937 1132 623 1132C287 1132 72 900 72 555C72 197 285 -21 636 -21ZM417 677C430 800 503 879 626 879C748 879 817 804 831 677Z" transform="translate(471.78 0) scale(0.06711 -0.06711)"/>
+    <path d="M464 638C464 768 541 845 655 845C769 845 837 770 837 644V0H1186V712C1186 965 1033 1132 799 1132C618 1132 508 1032 449 877L443 1118H115V0H464Z" transform="translate(552.68 0) scale(0.06711 -0.06711)"/>
+  </g>
+  <g class="wm-enso" fill="none" stroke="var(--accent,#12a594)"><g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="7.6"><path d="M 761.3 -48.2 A 53 53 0 1 1 742.4 -90.6"/><path d="M 675.3 -55.0 L 693.3 -38.0 L 750.3 -97.0"/></g></g>
+</svg></span><div><div class="tag">Denials, answered.</div></div></div>
+    <nav class="foot-links" aria-label="Footer"><a href="/resources/">Resources</a><a href="/#how">How it works</a><a href="/#contact">Contact</a></nav>
+    <p class="copy">© 2026 ClaimZen. General information, not billing, legal, or coding advice.</p>
+  </div>
+</footer>
+</body>
+</html>

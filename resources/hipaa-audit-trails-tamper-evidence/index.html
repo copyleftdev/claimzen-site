@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HIPAA Audit Trails and Tamper-Evidence: What the Security Rule Really Requires (2026) — ClaimZen</title>
+  <meta name="description" content="Audit controls and integrity are two of the HIPAA Security Rule's hardest technical safeguards — and where software most often fails quietly. What a tamper-evident audit trail looks like, and why a log you can edit isn't evidence.">
+  <link rel="canonical" href="https://claimzen.ai/resources/hipaa-audit-trails-tamper-evidence/">
+  <meta name="theme-color" content="#f7fbfa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#04140f" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="ClaimZen">
+  <meta property="og:title" content="HIPAA Audit Trails and Tamper-Evidence: What the Security Rule Really Requires">
+  <meta property="og:description" content="Audit controls (§164.312(b)) and integrity (§164.312(c)) explained — and what a tamper-evident, provable audit trail looks like.">
+  <meta property="og:url" content="https://claimzen.ai/resources/hipaa-audit-trails-tamper-evidence/">
+  <meta property="og:image" content="https://claimzen.ai/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"Article","headline":"HIPAA Audit Trails and Tamper-Evidence: What the Security Rule Really Requires","description":"Audit controls (\u00a7164.312(b)) and integrity (\u00a7164.312(c)) explained \u2014 and what a tamper-evident, provable audit trail looks like.","author":{"@type":"Organization","name":"ClaimZen","url":"https://claimzen.ai/"},"publisher":{"@type":"Organization","name":"ClaimZen","logo":{"@type":"ImageObject","url":"https://claimzen.ai/og.jpg"}},"datePublished":"2026-07-13","dateModified":"2026-07-13","mainEntityOfPage":"https://claimzen.ai/resources/hipaa-audit-trails-tamper-evidence/","about":["audit controls", "data integrity", "HIPAA Security Rule", "tamper-evidence", "hash chain", "audit trail"]},
+    {"@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://claimzen.ai/"},
+      {"@type":"ListItem","position":2,"name":"Resources","item":"https://claimzen.ai/resources/"},
+      {"@type":"ListItem","position":3,"name":"Audit trails & tamper-evidence","item":"https://claimzen.ai/resources/hipaa-audit-trails-tamper-evidence/"}]},
+    {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What do HIPAA audit controls actually require?","acceptedAnswer":{"@type":"Answer","text":"Section 164.312(b) requires mechanisms that record and examine activity in systems containing ePHI. The rule is deliberately non-specific about how, which is why implementations range from a mutable database table to a cryptographically verifiable ledger."}},{"@type":"Question","name":"What is tamper-evidence?","acceptedAnswer":{"@type":"Answer","text":"A property where any alteration of a record is detectable. Techniques include append-only storage, hash-chaining (each entry commits to the previous one), and digital signatures \u2014 so editing, reordering, or deleting an entry breaks verification."}},{"@type":"Question","name":"Isn't a database audit log good enough?","acceptedAnswer":{"@type":"Answer","text":"It records activity, but if a privileged user or DBA can update or delete rows, its integrity rests on trust rather than proof. In an investigation that gap becomes a finding: you can't rule out alteration. Tamper-evident designs remove the need to trust."}}]}
+  ]}
+  </script>
+</head>
+<body>
+<header class="nav" id="nav">
+  <a class="brand" href="/" aria-label="ClaimZen home">
+    <span class="cz-logo" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -113 781 128" aria-hidden="true" focusable="false">
+  <g class="wm-claim" fill="var(--ink,currentColor)">
+    <path d="M787 -20C1192 -20 1419 260 1446 526H1089C1064 381 954 290 794 290C580 290 443 445 443 744C443 1033 577 1200 796 1200C956 1200 1065 1109 1088 964H1445C1404 1311 1141 1510 787 1510C390 1510 82 1236 82 744C82 255 384 -20 787 -20Z" transform="translate(0.00 0) scale(0.06711 -0.06711)"/>
+    <path d="M464 1490H115V0H464Z" transform="translate(100.57 0) scale(0.06711 -0.06711)"/>
+    <path d="M428 -20C583 -20 691 42 752 157H761V0H1089V759C1089 999 870 1132 592 1132C312 1132 136 1001 92 810L408 769C427 839 492 884 589 884C684 884 741 840 741 763V759C741 690 665 676 476 660C250 641 60 558 60 310C60 89 213 -20 428 -20ZM534 211C450 211 390 251 390 326C390 400 448 444 551 459C616 469 704 484 744 505V398C744 288 651 211 534 211Z" transform="translate(137.84 0) scale(0.06711 -0.06711)"/>
+    <path d="M115 0H464V1118H115ZM289 1249C389 1249 470 1324 470 1417C470 1510 389 1585 289 1585C190 1585 109 1510 109 1417C109 1324 190 1249 289 1249Z" transform="translate(217.07 0) scale(0.06711 -0.06711)"/>
+    <path d="M115 0H464V664C464 781 531 848 626 848C719 848 782 783 782 680V0H1117V671C1117 778 1178 848 1277 848C1369 848 1435 788 1435 675V0H1783V754C1783 990 1634 1133 1425 1133C1274 1133 1130 1057 1062 874C1007 1057 916 1133 774 1133C639 1133 514 1064 452 896L436 1118H115Z" transform="translate(254.34 0) scale(0.06711 -0.06711)"/>
+  </g>
+  <g class="wm-zen" fill="var(--accent,#12a594)">
+    <path d="M109 0H1282V288H835C733 288 632 288 531 283C596 357 659 431 713 504L1281 1287V1490H108V1202H580C673 1202 765 1202 858 1206C797 1138 738 1069 688 1000L109 202Z" transform="translate(380.14 0) scale(0.06711 -0.06711)"/>
+    <path d="M636 -21C907 -21 1090 102 1146 296L835 347C807 272 736 232 642 232C510 232 421 312 415 474H1162V562C1162 931 937 1132 623 1132C287 1132 72 900 72 555C72 197 285 -21 636 -21ZM417 677C430 800 503 879 626 879C748 879 817 804 831 677Z" transform="translate(471.78 0) scale(0.06711 -0.06711)"/>
+    <path d="M464 638C464 768 541 845 655 845C769 845 837 770 837 644V0H1186V712C1186 965 1033 1132 799 1132C618 1132 508 1032 449 877L443 1118H115V0H464Z" transform="translate(552.68 0) scale(0.06711 -0.06711)"/>
+  </g>
+  <g class="wm-enso" fill="none" stroke="var(--accent,#12a594)"><g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="7.6"><path d="M 761.3 -48.2 A 53 53 0 1 1 742.4 -90.6"/><path d="M 675.3 -55.0 L 693.3 -38.0 L 750.3 -97.0"/></g></g>
+</svg></span>
+    
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="/resources/">Resources</a><a href="/#how">How it works</a>
+    <a class="btn btn-primary btn-sm" href="/#contact">Get early access</a>
+  </nav>
+</header>
+<main class="article">
+  <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/resources/">Resources</a> &rsaquo; Audit trails & tamper-evidence</nav>
+  <h1>HIPAA audit trails and tamper-evidence: what the Security Rule really requires</h1>
+  <p class="dek">Audit controls and integrity are two of the Security Rule&rsquo;s hardest technical safeguards — and the place software most often fails quietly. What &ldquo;good&rdquo; looks like.</p>
+  <p class="byline">By ClaimZen &middot; Updated July 2026 &middot; ~7 min read</p>
+  <div class="prose">
+    <p>Two of the HIPAA Security Rule&rsquo;s technical safeguards do the quiet, load-bearing work of compliance: <strong>audit controls</strong> (45&nbsp;CFR&nbsp;&sect;164.312(b)) and <strong>integrity</strong> (&sect;164.312(c)(1)). Nearly every system claims to satisfy them. Far fewer can prove it when an auditor or a breach forensic actually asks.</p>
+
+    <h2>What the rule requires — and leaves open</h2>
+    <p>Audit controls require &ldquo;hardware, software, and/or procedural mechanisms that record and examine activity&rdquo; in systems with ePHI. Integrity requires protecting ePHI from &ldquo;improper alteration or destruction.&rdquo; Notice what the rule does <em>not</em> say: <em>how</em>. That flexibility is why two systems can both check the box while offering wildly different assurance.</p>
+
+    <h2>The gap: a log you can edit isn&rsquo;t evidence</h2>
+    <p>A conventional audit log is a database table. It records who did what — but with enough privilege, a user, an administrator, or a DBA can update or delete rows. Its integrity rests on <strong>trusting</strong> those people and that database. In an OCR audit or a breach investigation, that&rsquo;s exactly the weak point: you can attest the log is complete, but you can&rsquo;t rule out that it was altered. &ldquo;We can&rsquo;t prove it wasn&rsquo;t tampered with&rdquo; is how a control becomes a finding.</p>
+
+    <h2>What tamper-evidence looks like</h2>
+    <p>Tamper-evident means any alteration is <em>detectable</em>. Three techniques, usually combined:</p>
+    <ul>
+      <li><strong>Append-only</strong> storage — entries are added, never edited or deleted in place.</li>
+      <li><strong>Hash-chaining</strong> — each entry includes a cryptographic digest of the previous entry, so the whole history is linked. Change one entry and every entry after it fails to verify.</li>
+      <li><strong>Digital signatures</strong> — the chain is signed with a protected key, so no one can forge or rewrite it and re-sign.</li>
+    </ul>
+    <p>Add <strong>offline verifiability</strong> — the ability to hand a third party a slice of the record they can check without your servers — and integrity stops being something you re-audit periodically and becomes something anyone can confirm on demand.</p>
+
+    <h2>Weak vs. strong, side by side</h2>
+    <div class="tbl-wrap">
+    <table class="codes">
+      <thead><tr><th>Property</th><th>Weak implementation</th><th>Strong implementation</th></tr></thead>
+      <tbody>
+        <tr><td class="c">Storage</td><td>Editable table rows</td><td>Append-only log</td></tr>
+        <tr><td class="c">Alteration</td><td>Possible with privilege, undetected</td><td>Breaks a hash chain — detectable</td></tr>
+        <tr><td class="c">Trust model</td><td>Trust the admin &amp; database</td><td>Verify with math</td></tr>
+        <tr><td class="c">Proof to a third party</td><td>&ldquo;Take our word for it&rdquo;</td><td>Signed export, verifiable offline</td></tr>
+        <tr><td class="c">Integrity check</td><td>Periodic review</td><td>On demand, byte-for-byte</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h2>What to look for in a system</h2>
+    <p>Ask: Is the audit log append-only? Can an administrator alter or delete history? Is it cryptographically verifiable? Can you export a record whose completeness a third party can confirm independently? &ldquo;Yes&rdquo; to those is the difference between a log and evidence — a question worth putting on your <a href="/resources/dental-vendor-hipaa-checklist/">vendor checklist</a>.</p>
+
+    <div class="callout-box">ClaimZen&rsquo;s ledger is append-only and hash-chained, Ed25519-signed with a key sealed at rest, and every case exports as a signed evidence packet that verifies offline against a BLAKE3 state root — so you prove integrity rather than assert it. See <a href="/resources/hipaa-compliance-by-design/">HIPAA compliance by design</a>.</div>
+
+    <div class="faq">
+      <h2>Frequently asked questions</h2>
+      <h3>What do HIPAA audit controls require?</h3>
+      <p>Mechanisms that record and examine activity in systems with ePHI (&sect;164.312(b)). The rule doesn&rsquo;t specify how, so assurance varies widely.</p>
+      <h3>What is tamper-evidence?</h3>
+      <p>A property where any alteration is detectable — via append-only storage, hash-chaining, and signatures, so editing or deleting an entry breaks verification.</p>
+      <h3>Isn&rsquo;t a database audit log good enough?</h3>
+      <p>It records activity, but if privileged users can change it, its integrity rests on trust. Tamper-evident designs let you prove it instead.</p>
+    </div>
+    <div class="sources">
+      <h2>Sources</h2>
+      <ol>
+        <li>HHS, HIPAA Security Rule, audit controls 45 CFR &sect;164.312(b) and integrity &sect;164.312(c)(1).</li>
+        <li>HHS, person or entity authentication, 45 CFR &sect;164.312(d).</li>
+        <li>NIST, SP 800-66 Rev. 2, Implementing the HIPAA Security Rule.</li>
+        <li>NIST, SP 800-92, Guide to Computer Security Log Management.</li>
+        <li>ClaimZen, <a href="/resources/hipaa-compliance-by-design/">HIPAA compliance by design</a> and <a href="/architecture/">system architecture</a>.</li>
+      </ol>
+      <p style="margin-top:12px">General information, not legal or compliance advice. HIPAA obligations depend on your organization, your data, and your contracts &mdash; consult your privacy/security officer and counsel.</p>
+    </div>
+  </div>
+  <div class="article-cta">
+    <h2>An audit trail that&rsquo;s evidence, not assertion.</h2>
+    <p>ClaimZen&rsquo;s ledger is append-only, hash-chained, and signed — so you can prove your records weren&rsquo;t altered, offline.</p>
+    <a class="btn btn-primary" href="/#contact">Get early access</a>
+  </div>
+</main>
+<footer class="footer">
+  <div class="wrap footer-in">
+    <div class="foot-brand"><span class="cz-logo" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -113 781 128" aria-hidden="true" focusable="false">
+  <g class="wm-claim" fill="var(--ink,currentColor)">
+    <path d="M787 -20C1192 -20 1419 260 1446 526H1089C1064 381 954 290 794 290C580 290 443 445 443 744C443 1033 577 1200 796 1200C956 1200 1065 1109 1088 964H1445C1404 1311 1141 1510 787 1510C390 1510 82 1236 82 744C82 255 384 -20 787 -20Z" transform="translate(0.00 0) scale(0.06711 -0.06711)"/>
+    <path d="M464 1490H115V0H464Z" transform="translate(100.57 0) scale(0.06711 -0.06711)"/>
+    <path d="M428 -20C583 -20 691 42 752 157H761V0H1089V759C1089 999 870 1132 592 1132C312 1132 136 1001 92 810L408 769C427 839 492 884 589 884C684 884 741 840 741 763V759C741 690 665 676 476 660C250 641 60 558 60 310C60 89 213 -20 428 -20ZM534 211C450 211 390 251 390 326C390 400 448 444 551 459C616 469 704 484 744 505V398C744 288 651 211 534 211Z" transform="translate(137.84 0) scale(0.06711 -0.06711)"/>
+    <path d="M115 0H464V1118H115ZM289 1249C389 1249 470 1324 470 1417C470 1510 389 1585 289 1585C190 1585 109 1510 109 1417C109 1324 190 1249 289 1249Z" transform="translate(217.07 0) scale(0.06711 -0.06711)"/>
+    <path d="M115 0H464V664C464 781 531 848 626 848C719 848 782 783 782 680V0H1117V671C1117 778 1178 848 1277 848C1369 848 1435 788 1435 675V0H1783V754C1783 990 1634 1133 1425 1133C1274 1133 1130 1057 1062 874C1007 1057 916 1133 774 1133C639 1133 514 1064 452 896L436 1118H115Z" transform="translate(254.34 0) scale(0.06711 -0.06711)"/>
+  </g>
+  <g class="wm-zen" fill="var(--accent,#12a594)">
+    <path d="M109 0H1282V288H835C733 288 632 288 531 283C596 357 659 431 713 504L1281 1287V1490H108V1202H580C673 1202 765 1202 858 1206C797 1138 738 1069 688 1000L109 202Z" transform="translate(380.14 0) scale(0.06711 -0.06711)"/>
+    <path d="M636 -21C907 -21 1090 102 1146 296L835 347C807 272 736 232 642 232C510 232 421 312 415 474H1162V562C1162 931 937 1132 623 1132C287 1132 72 900 72 555C72 197 285 -21 636 -21ZM417 677C430 800 503 879 626 879C748 879 817 804 831 677Z" transform="translate(471.78 0) scale(0.06711 -0.06711)"/>
+    <path d="M464 638C464 768 541 845 655 845C769 845 837 770 837 644V0H1186V712C1186 965 1033 1132 799 1132C618 1132 508 1032 449 877L443 1118H115V0H464Z" transform="translate(552.68 0) scale(0.06711 -0.06711)"/>
+  </g>
+  <g class="wm-enso" fill="none" stroke="var(--accent,#12a594)"><g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="7.6"><path d="M 761.3 -48.2 A 53 53 0 1 1 742.4 -90.6"/><path d="M 675.3 -55.0 L 693.3 -38.0 L 750.3 -97.0"/></g></g>
+</svg></span><div><div class="tag">Denials, answered.</div></div></div>
+    <nav class="foot-links" aria-label="Footer"><a href="/resources/">Resources</a><a href="/#how">How it works</a><a href="/#contact">Contact</a></nav>
+    <p class="copy">© 2026 ClaimZen. General information, not billing, legal, or coding advice.</p>
+  </div>
+</footer>
+</body>
+</html>
