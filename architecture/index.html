@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ClaimZen Architecture — one deterministic, signed kernel behind three products</title>
+  <meta name="description" content="The full spectrum of ClaimZen: a deterministic, cryptographically signed truth plane. Email and EDI are untrusted transport; a pure event-sourced kernel turns every message into a signed, replayable case. AI proposes; only deterministic code decides. One kernel powers denial recovery, the Practice PMS, and Migrate — every answer verifies offline.">
+  <link rel="canonical" href="https://claimzen.ai/architecture/">
+  <meta name="theme-color" content="#f7fbfa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#04140f" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <link rel="stylesheet" href="/styles.css">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ClaimZen">
+  <meta property="og:title" content="ClaimZen Architecture — one signed kernel, three products">
+  <meta property="og:description" content="A deterministic truth plane. AI proposes; deterministic code decides; every answer verifies offline. One kernel powers denial recovery, the Practice PMS, and Migrate.">
+  <meta property="og:url" content="https://claimzen.ai/architecture/">
+  <meta property="og:image" content="https://claimzen.ai/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://claimzen.ai/og.jpg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "@id": "https://claimzen.ai/architecture/#article",
+    "headline": "ClaimZen Architecture — one deterministic, signed kernel behind three products",
+    "description": "The architecture of ClaimZen: a deterministic, event-sourced, cryptographically signed truth plane. Untrusted transports (email, EDI, portals, a legacy PMS export) become canonical signed case objects; AI interprets ambiguity but never manufactures truth or executes an unapproved action; every conclusion ships a signed evidence packet that verifies offline. One kernel powers denial recovery, the ClaimZen Practice PMS, and ClaimZen Migrate.",
+    "author": { "@type": "Organization", "name": "ClaimZen" },
+    "publisher": { "@type": "Organization", "name": "ClaimZen", "url": "https://claimzen.ai/" },
+    "about": ["Deterministic systems", "Event sourcing", "Cryptographic audit trail", "Dental revenue cycle management", "AI containment"],
+    "url": "https://claimzen.ai/architecture/"
+  }
+  </script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav" id="nav">
+  <a class="brand" href="/">
+    <span class="mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M26.83 14.09A11 11 0 1 1 17.91 5.17"/><path d="M12.8 10.2 16.6 14 26.5 3.2"/></svg></span>
+    <span class="wordmark">Claim<span class="z">Zen</span></span>
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="/architecture/">Architecture</a>
+    <a href="/practice/">Practice</a>
+    <a href="/resources/">Resources</a>
+    <a class="btn btn-primary btn-sm" href="/#contact">Get early access</a>
+  </nav>
+</nav>
+
+<main id="main">
+
+<header class="hero wrap">
+  <div class="eyebrow">System architecture</div>
+  <h1>One kernel.<br>Three products.<br><span class="grad">Every answer, provable.</span></h1>
+  <p class="lede">ClaimZen is not an AI that reads your healthcare mail. It&rsquo;s a <strong>deterministic, cryptographically signed truth plane</strong>: every message, claim, chart, and legacy record becomes an immutable, replayable, verifiable event. <strong>AI proposes; only deterministic code decides;</strong> every conclusion ships a proof that verifies offline &mdash; without us.</p>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="/#contact">Get early access</a>
+    <a class="btn btn-ghost" href="/practice/">Explore Practice &rarr;</a>
+  </div>
+</header>
+
+<!-- THESIS -->
+<section class="section wrap reveal" id="thesis">
+  <div class="kicker">The core decision</div>
+  <h2>Separate the transport from the truth.</h2>
+  <p class="section-lede">Email, EDI, payer portals, and a decades-old PMS are all <em>untrusted transport</em>. The kernel is the governed intelligence around them: it converts every inbound or outbound communication into a canonical, policy-governed, reproducible case &mdash; and past that boundary, nothing is trusted until it is proven.</p>
+  <div class="cards">
+    <div class="card">
+      <div class="ci" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 7l9 6 9-6"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg></div>
+      <h3>Untrusted transport</h3>
+      <p>SMTP, JMAP, EDI, SFTP, portal, fax, webhook &mdash; behind one adapter that is the only thing touching the network. It freezes the exact wire bytes into a content-addressed blob.</p>
+    </div>
+    <div class="card">
+      <div class="ci" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <h3>Deterministic kernel</h3>
+      <p>A pure, event-sourced core folds observations into a case state you can replay byte-for-byte and cryptographically verify. Same inputs, same conclusions &mdash; always.</p>
+    </div>
+    <div class="card">
+      <div class="ci" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+      <h3>AI, contained</h3>
+      <p>The model is an untrusted coprocessor. It reads ambiguity and proposes; a deterministic gate corroborates every value against the source; a human authorizes. It never manufactures truth or executes an action.</p>
+    </div>
+  </div>
+</section>
+
+<!-- THE KERNEL -->
+<section class="section alt wrap reveal" id="kernel">
+  <div class="kicker">The kernel</div>
+  <h2>One deterministic, signed core.</h2>
+  <p class="section-lede">Every product on ClaimZen is the same kernel pointed at a different domain. It is small, decomposable, and unforgiving about where truth comes from.</p>
+  <div class="cards">
+    <div class="card">
+      <h3>Event-sourced state</h3>
+      <p>An append-only log of typed events; a pure <code>reduce</code> folds them into case state. The state root is a BLAKE3 hash over canonical JSON &mdash; a single fingerprint of everything derived.</p>
+    </div>
+    <div class="card">
+      <h3>Hash-chained, signed ledger</h3>
+      <p>Every entry digest covers the previous one, Ed25519-signed by a key sealed at rest (XChaCha20 · Argon2id). History can&rsquo;t be edited, reordered, or truncated without breaking the chain.</p>
+    </div>
+    <div class="card">
+      <h3>Fact · Claim · Evidence · Decision</h3>
+      <p>Observations become Facts, content-addressed to their source. Verbs propose Claims. Claims verify into Evidence. And <strong>only deterministic code promotes a verdict to a Decision</strong> &mdash; never the model.</p>
+    </div>
+    <div class="card">
+      <h3>Pure policy engine</h3>
+      <p>A content-addressed, versioned <code>.aion</code> policy bundle &mdash; no clock, no network, no randomness &mdash; evaluates the folded case and emits obligations. What fired is always auditable.</p>
+    </div>
+    <div class="card">
+      <h3>Two-phase actions</h3>
+      <p>Nothing acts on the outside world in one step. A plan is proposed and its digest sealed; a human authorizes; only then does a capability execute &mdash; through a digest gate that refuses anything but the exact approved bytes.</p>
+    </div>
+    <div class="card">
+      <h3>Evidence packets &amp; tenancy</h3>
+      <p>Any case exports as a signed packet &mdash; the ledger slice and its blobs &mdash; that verifies <strong>offline, without the server</strong>. The whole kernel is one tenant silo; run N, each with its own key, ledger, and evidence.</p>
+    </div>
+  </div>
+</section>
+
+<!-- THREE PRODUCTS -->
+<section class="section wrap reveal" id="products">
+  <div class="kicker">One kernel, three product lines</div>
+  <h2>The same core, three domains.</h2>
+  <p class="section-lede">Each product reuses the runtime, ledger, policy engine, AI containment, and action protocol unchanged &mdash; and each deepens the same verified-truth dataset.</p>
+
+  <div class="eco" style="grid-template-columns:1fr;gap:22px">
+    <div class="eco-card">
+      <div class="lab">Recovery &middot; denial intelligence</div>
+      <h3>Prove payers wrong &mdash; and remember it.</h3>
+      <p>Inbound payer correspondence is correlated to a case and checked by eight verification verbs against ground truth: the payer&rsquo;s own 271/277 responses, the provider&rsquo;s records (filing dates, authorizations, contracted amounts), and the CARC standard itself. A contradiction is sealed as a fact; policy holds the case; a human approves an evidence-backed appeal.</p>
+      <div class="flow">
+        <span class="node">Payer denial</span><span class="arr">&rarr;</span>
+        <span class="node">Correlate to case</span><span class="arr">&rarr;</span>
+        <span class="node">8 verification verbs</span><span class="arr">&rarr;</span>
+        <span class="node">Contradiction sealed</span><span class="arr">&rarr;</span>
+        <span class="node">Policy hold</span><span class="arr">&rarr;</span>
+        <span class="node">Human-signed appeal</span>
+      </div>
+    </div>
+
+    <div class="eco-card">
+      <div class="lab">Practice &middot; the AI-native PMS</div>
+      <h3>The record and the evidence are the same object.</h3>
+      <p>The whole running state of a practice &mdash; charts, schedules, ledgers &mdash; is the same signed event stream. Three clinical coprocessors read the world and propose; each is gated exactly like the denial extractor (evidence must appear verbatim, the code must be on the fee schedule, the pixels never touch the ledger); a clinician signs. A confirmed finding drives a treatment plan; the same chart facts assemble a claim; a denial re-enters Recovery.</p>
+      <div class="flow">
+        <span class="node">Transcript / radiograph</span><span class="arr">&rarr;</span>
+        <span class="node">Coprocessor (gated)</span><span class="arr">&rarr;</span>
+        <span class="node">Clinician signs</span><span class="arr">&rarr;</span>
+        <span class="node">Signed chart</span><span class="arr">&rarr;</span>
+        <span class="node">Chart&#8209;to&#8209;claim</span><span class="arr">&rarr;</span>
+        <span class="node">Claim &rarr; appeal</span>
+      </div>
+    </div>
+
+    <div class="eco-card">
+      <div class="lab">Migrate &middot; the on-ramp</div>
+      <h3>Leaving the old system becomes a proof.</h3>
+      <p>The incumbent&rsquo;s only real moat is switching cost. Migrate removes it: an AI coprocessor reads a legacy PMS (Eaglesoft, Dentrix, Open Dental), proposes the crosswalk from its foreign schema to the canonical one, and dry-runs the migration until every total ties the legacy system&rsquo;s own trial balance &mdash; to the cent. Only a green reconciliation can be signed, into an attestation that verifies offline. Then it cuts over onto the truth plane.</p>
+      <div class="flow">
+        <span class="node">Legacy export</span><span class="arr">&rarr;</span>
+        <span class="node">Propose crosswalk</span><span class="arr">&rarr;</span>
+        <span class="node">Gate</span><span class="arr">&rarr;</span>
+        <span class="node">Reconcile to the cent</span><span class="arr">&rarr;</span>
+        <span class="node">Sign &amp; verify offline</span><span class="arr">&rarr;</span>
+        <span class="node">Cut over</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE GUARANTEE -->
+<section class="section alt wrap reveal" id="guarantee">
+  <div class="who">
+    <div>
+      <div class="kicker">The guarantee</div>
+      <h2>Deterministic. Replayable. Signed.</h2>
+      <p class="section-lede">External systems &mdash; payers, portals, clearinghouses, models, clocks, humans &mdash; produce <em>recorded observations</em>. They never participate invisibly in the reducer.</p>
+      <ul class="who-list">
+        <li><span class="tick">&check;</span> Same events + policy bundle + versions &rArr; the same state root, findings, decisions, and explanation graph.</li>
+        <li><span class="tick">&check;</span> Every claim and every migration ships a signed evidence packet that verifies months later, offline, without trusting us.</li>
+        <li><span class="tick">&check;</span> A HIPAA-grade audit trail and medico-legal chart integrity fall out for free &mdash; they were already events.</li>
+      </ul>
+    </div>
+    <div class="pull">
+      <p>Stalwart is the mail plane. ClaimZen is the truth plane. AI can interpret ambiguity &mdash; but it cannot silently manufacture truth or execute an unapproved action.</p>
+      <cite>The one architectural decision</cite>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF AT SCALE -->
+<section class="section wrap reveal" id="proof">
+  <div class="kicker">Proof at scale</div>
+  <h2>It holds under load.</h2>
+  <p class="section-lede">A synthetic DSO corpus at Heartland size, folded and checked against an independent oracle recomputed from the raw rows.</p>
+  <div class="stats" style="margin-top:40px">
+    <div class="stat"><div class="n">1,151,628</div><div class="l">events folded across 1,700 locations, in 3.82&thinsp;s <span class="src">&mdash; single run, release build</span></div></div>
+    <div class="stat"><div class="n">20,557</div><div class="l">invariants held &mdash; production &equiv; collections + write-offs + A/R, to the cent</div></div>
+    <div class="stat"><div class="n">Offline</div><div class="l">signed evidence packets verify without the server &mdash; the trust artifact no incumbent can produce</div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section alt wrap reveal" id="cta">
+  <div class="article-cta" style="margin-top:0">
+    <h2>See the full spectrum, running.</h2>
+    <p>The kernel, the three products, and the proofs &mdash; live. We&rsquo;ll walk you through denial recovery, the Practice desk, and a legacy migration reconciled to the cent.</p>
+    <a class="btn btn-primary" href="/#contact">Get early access</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-in">
+    <div class="foot-brand">
+      <span class="mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M26.83 14.09A11 11 0 1 1 17.91 5.17"/><path d="M12.8 10.2 16.6 14 26.5 3.2"/></svg></span>
+      <div>
+        <div class="wordmark">Claim<span class="z">Zen</span></div>
+        <div class="tag">Calm on top. Proof underneath.</div>
+      </div>
+    </div>
+    <nav class="foot-links" aria-label="Footer">
+      <a href="/architecture/">Architecture</a>
+      <a href="/practice/">Practice</a>
+      <a href="/resources/">Resources</a>
+      <a href="/#contact">Contact</a>
+      <a href="/investors/" rel="nofollow">Investors &amp; press</a>
+    </nav>
+    <p class="copy">© 2026 ClaimZen. Calm on top. Proof underneath.</p>
+  </div>
+</footer>
+
+<script src="/main.js" defer></script>
+</body>
+</html>
