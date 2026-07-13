@@ -238,3 +238,12 @@ table.codes .c{font-family:var(--mono);font-weight:600;color:var(--accent-ink);w
 .eco-card h3{margin:12px 0 8px;font-size:23px;letter-spacing:-.01em}
 .eco-card p{color:var(--muted);font-size:16px}
 .eco-card .go{display:inline-block;margin-top:14px;font-weight:600;color:var(--accent-ink)}
+
+/* wordmark lockup (enso Seal) */
+.cz-logo{display:inline-flex;align-items:center;line-height:0}
+.cz-logo svg{height:24px;width:auto;display:block}
+.wm-claim{fill:var(--ink)}
+.wm-zen{fill:var(--accent)}
+.wm-enso{fill:none;stroke:var(--accent)}
+.foot-brand .cz-logo svg{height:26px}
+.cz-suffix{font-weight:600;font-size:19px;letter-spacing:-.02em;color:var(--muted);margin-left:-2px}
