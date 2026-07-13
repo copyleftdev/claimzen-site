@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HIPAA Compliance by Design: How ClaimZen Builds It Into the Architecture (2026) — ClaimZen</title>
+  <meta name="description" content="How ClaimZen's deterministic, cryptographically signed architecture builds the HIPAA Security Rule's technical safeguards — audit controls, record integrity, and human accountability — into the kernel by design, and what HIPAA compliance still requires beyond software.">
+  <link rel="canonical" href="https://claimzen.ai/resources/hipaa-compliance-by-design/">
+  <meta name="theme-color" content="#f7fbfa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#04140f" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="ClaimZen">
+  <meta property="og:title" content="HIPAA Compliance by Design: How ClaimZen Builds It Into the Architecture">
+  <meta property="og:description" content="The HIPAA Security Rule's technical safeguards — audit controls, integrity, accountability — as structural properties of a signed kernel, not bolted-on config.">
+  <meta property="og:url" content="https://claimzen.ai/resources/hipaa-compliance-by-design/">
+  <meta property="og:image" content="https://claimzen.ai/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {"@type":"Article","headline":"HIPAA Compliance by Design: How ClaimZen Builds It Into the Architecture","description":"How a deterministic, cryptographically signed truth plane turns the HIPAA Security Rule's technical safeguards into structural guarantees — and what compliance still requires beyond software.","author":{"@type":"Organization","name":"ClaimZen","url":"https://claimzen.ai/"},"publisher":{"@type":"Organization","name":"ClaimZen","logo":{"@type":"ImageObject","url":"https://claimzen.ai/og.jpg"}},"datePublished":"2026-07-13","dateModified":"2026-07-13","mainEntityOfPage":"https://claimzen.ai/resources/hipaa-compliance-by-design/","about":["HIPAA","HIPAA Security Rule","audit controls","data integrity","healthcare compliance","protected health information"]},
+      {"@type":"BreadcrumbList","itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://claimzen.ai/"},
+        {"@type":"ListItem","position":2,"name":"Resources","item":"https://claimzen.ai/resources/"},
+        {"@type":"ListItem","position":3,"name":"HIPAA compliance by design","item":"https://claimzen.ai/resources/hipaa-compliance-by-design/"}]},
+      {"@type":"FAQPage","mainEntity":[
+        {"@type":"Question","name":"Is ClaimZen HIPAA certified?","acceptedAnswer":{"@type":"Answer","text":"There is no official HIPAA certification. HHS does not certify, endorse, or accredit products or vendors as HIPAA compliant. Any claim of being 'HIPAA certified' refers to a private third-party assessment, not a government stamp. HIPAA compliance is a program an organization maintains over time, not a badge a product carries."}},
+        {"@type":"Question","name":"Does a vendor like ClaimZen need a Business Associate Agreement?","acceptedAnswer":{"@type":"Answer","text":"Yes. Under HIPAA, any business associate that creates, receives, maintains, or transmits protected health information on a covered entity's behalf must enter a Business Associate Agreement (BAA) before PHI is shared. The BAA — not a logo or a certificate — is what legally binds a vendor to HIPAA's requirements."}},
+        {"@type":"Question","name":"Does ClaimZen's AI see PHI, and is that a HIPAA problem?","acceptedAnswer":{"@type":"Answer","text":"In ClaimZen the model is a contained, propose-only coprocessor: it can read case context to draft and suggest, but it never decides, never acts, and never promotes its own output to a fact. Deterministic code and a human do that. HIPAA does not prohibit using AI on PHI — doing it without auditability, corroboration, and minimum-necessary limits is the risk, and containment addresses exactly that."}},
+        {"@type":"Question","name":"How does a signed, hash-chained ledger help during an audit or breach investigation?","acceptedAnswer":{"@type":"Answer","text":"It turns assertions into evidence. Instead of testifying that an audit log is complete and unaltered, you can demonstrate it: the hash chain proves no entry was edited, reordered, or removed, and each case exports as a signed evidence packet that a third party can verify offline, without ClaimZen in the loop."}}
+      ]}
+    ]
+  }
+  </script>
+</head>
+<body>
+<header class="nav" id="nav">
+  <a class="brand" href="/" aria-label="ClaimZen home">
+    <span class="cz-logo" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -113 781 128" aria-hidden="true" focusable="false">
+  <g class="wm-claim" fill="var(--ink,currentColor)">
+    <path d="M787 -20C1192 -20 1419 260 1446 526H1089C1064 381 954 290 794 290C580 290 443 445 443 744C443 1033 577 1200 796 1200C956 1200 1065 1109 1088 964H1445C1404 1311 1141 1510 787 1510C390 1510 82 1236 82 744C82 255 384 -20 787 -20Z" transform="translate(0.00 0) scale(0.06711 -0.06711)"/>
+    <path d="M464 1490H115V0H464Z" transform="translate(100.57 0) scale(0.06711 -0.06711)"/>
+    <path d="M428 -20C583 -20 691 42 752 157H761V0H1089V759C1089 999 870 1132 592 1132C312 1132 136 1001 92 810L408 769C427 839 492 884 589 884C684 884 741 840 741 763V759C741 690 665 676 476 660C250 641 60 558 60 310C60 89 213 -20 428 -20ZM534 211C450 211 390 251 390 326C390 400 448 444 551 459C616 469 704 484 744 505V398C744 288 651 211 534 211Z" transform="translate(137.84 0) scale(0.06711 -0.06711)"/>
+    <path d="M115 0H464V1118H115ZM289 1249C389 1249 470 1324 470 1417C470 1510 389 1585 289 1585C190 1585 109 1510 109 1417C109 1324 190 1249 289 1249Z" transform="translate(217.07 0) scale(0.06711 -0.06711)"/>
+    <path d="M115 0H464V664C464 781 531 848 626 848C719 848 782 783 782 680V0H1117V671C1117 778 1178 848 1277 848C1369 848 1435 788 1435 675V0H1783V754C1783 990 1634 1133 1425 1133C1274 1133 1130 1057 1062 874C1007 1057 916 1133 774 1133C639 1133 514 1064 452 896L436 1118H115Z" transform="translate(254.34 0) scale(0.06711 -0.06711)"/>
+  </g>
+  <g class="wm-zen" fill="var(--accent,#12a594)">
+    <path d="M109 0H1282V288H835C733 288 632 288 531 283C596 357 659 431 713 504L1281 1287V1490H108V1202H580C673 1202 765 1202 858 1206C797 1138 738 1069 688 1000L109 202Z" transform="translate(380.14 0) scale(0.06711 -0.06711)"/>
+    <path d="M636 -21C907 -21 1090 102 1146 296L835 347C807 272 736 232 642 232C510 232 421 312 415 474H1162V562C1162 931 937 1132 623 1132C287 1132 72 900 72 555C72 197 285 -21 636 -21ZM417 677C430 800 503 879 626 879C748 879 817 804 831 677Z" transform="translate(471.78 0) scale(0.06711 -0.06711)"/>
+    <path d="M464 638C464 768 541 845 655 845C769 845 837 770 837 644V0H1186V712C1186 965 1033 1132 799 1132C618 1132 508 1032 449 877L443 1118H115V0H464Z" transform="translate(552.68 0) scale(0.06711 -0.06711)"/>
+  </g>
+  <g class="wm-enso" fill="none" stroke="var(--accent,#12a594)"><g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="7.6"><path d="M 761.3 -48.2 A 53 53 0 1 1 742.4 -90.6"/><path d="M 675.3 -55.0 L 693.3 -38.0 L 750.3 -97.0"/></g></g>
+</svg></span>
+    
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="/resources/">Resources</a><a href="/#how">How it works</a>
+    <a class="btn btn-primary btn-sm" href="/#contact">Get early access</a>
+  </nav>
+</header>
+<main class="article">
+  <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/resources/">Resources</a> &rsaquo; HIPAA compliance by design</nav>
+  <h1>HIPAA compliance by design: how ClaimZen builds it into the architecture</h1>
+  <p class="dek">Most software treats HIPAA as a layer you add on top &mdash; audit logs, access reviews, a policy binder. ClaimZen was built the other way around: the tamper-evident audit trail, record integrity, and human accountability the Security Rule asks for are properties of the kernel itself, not features bolted beside it.</p>
+  <p class="byline">By ClaimZen &middot; Updated July 2026 &middot; ~7 min read</p>
+  <div class="prose">
+    <p>Every dental practice that bills insurance handles protected health information (PHI), which puts it squarely under HIPAA &mdash; and puts every vendor that touches that data under HIPAA too. The uncomfortable truth is that most software satisfies the HIPAA <em>Security Rule</em> the way it satisfies any checklist: with logging that can be switched off, access controls that drift, and an audit trail that lives in a table someone with enough privilege could quietly rewrite. It passes the questionnaire. It doesn&rsquo;t always hold up under investigation.</p>
+    <p>ClaimZen takes a different position: the parts of HIPAA most likely to fail <em>silently</em> &mdash; the technical safeguards &mdash; should be structural, not configurable. Here is what that means, and, just as importantly, what it doesn&rsquo;t.</p>
+
+    <h2>First, there is no such thing as &ldquo;HIPAA certified&rdquo;</h2>
+    <p>It&rsquo;s worth clearing this up before anything else. HHS does not certify, endorse, or accredit any product or vendor as HIPAA compliant. Compliance is an ongoing <strong>program</strong> that a covered entity (your practice) and its business associates (the vendors that handle PHI) run <em>together</em>. The Security Rule (45&nbsp;CFR&nbsp;Part&nbsp;164) sorts its safeguards into three families &mdash; <strong>administrative</strong>, <strong>physical</strong>, and <strong>technical</strong> &mdash; and no piece of software can make an organization compliant on its own.</p>
+    <p>What the software <em>does</em> decide is how much of the <strong>technical</strong> burden is built-in versus something you have to configure, monitor, and hope stays that way. That&rsquo;s the whole argument for &ldquo;by design.&rdquo;</p>
+
+    <h2>The technical safeguards &mdash; and where architecture carries the weight</h2>
+    <p>The Security Rule&rsquo;s technical safeguards live in 45&nbsp;CFR&nbsp;&sect;164.312. Here is how each maps to the way ClaimZen&rsquo;s kernel is actually built.</p>
+    <div class="tbl-wrap">
+    <table class="codes">
+      <thead><tr><th>Safeguard (&sect;164.312)</th><th>What it requires</th><th>How the architecture meets it</th></tr></thead>
+      <tbody>
+        <tr><td class="c">Audit controls (b)</td><td>Record and examine activity in systems that hold ePHI.</td><td>Every state change is an append-only, hash-chained, Ed25519-signed ledger entry. The audit log <em>is</em> the system of record &mdash; not a side channel that can be turned off.</td></tr>
+        <tr><td class="c">Integrity (c)(1)</td><td>Protect ePHI from improper alteration or destruction.</td><td>Each entry&rsquo;s digest covers the one before it. Edit, reorder, or truncate any event and the chain stops verifying &mdash; tampering is detectable by anyone, offline.</td></tr>
+        <tr><td class="c">Access control (a)(1)</td><td>Limit ePHI access to authorized people and software.</td><td>One tenant silo per practice, each with its own key, ledger, and evidence. Nothing acts on the outside world until a human authorizes the exact approved bytes.</td></tr>
+        <tr><td class="c">Authentication (d)</td><td>Verify the person or entity acting is who it claims.</td><td>Only deterministic code promotes a verdict to a decision, and it is signed; outbound actions require a human authorization sealed by digest. Every conclusion carries a signature.</td></tr>
+        <tr><td class="c">Transmission security (e)(1)</td><td>Guard ePHI as it moves across a network.</td><td>Encrypted at the transport layer, then the single network adapter freezes the exact received bytes into a content-addressed blob &mdash; so what crossed the wire is provable later, not just protected in transit.</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h2>An audit trail nobody can quietly rewrite</h2>
+    <p>The most common audit finding isn&rsquo;t a missing log &mdash; it&rsquo;s a log that <em>could have been</em> altered. A conventional audit table can be updated or deleted with enough privilege; its integrity rests on trusting the administrator and the database. ClaimZen&rsquo;s ledger is append-only and hash-chained: every entry&rsquo;s digest includes the previous entry&rsquo;s, and the chain is Ed25519-signed with a key sealed at rest (XChaCha20&nbsp;&middot;&nbsp;Argon2id). Remove, reorder, or edit a single event and the math stops verifying.</p>
+    <p>In an investigation &mdash; an OCR audit, a breach forensic, an internal review &mdash; you don&rsquo;t <em>assert</em> the record is complete. You <strong>prove</strong> it.</p>
+
+    <h2>Integrity as a proof, not a promise</h2>
+    <p>A case&rsquo;s state is a pure function of its events: fold them with deterministic code and you get a BLAKE3 <strong>state root</strong>, a single fingerprint over everything derived from the record. Anyone holding the exported evidence packet can replay it and confirm they reach the identical root, byte-for-byte, <em>without ClaimZen in the loop</em>. The Security Rule&rsquo;s integrity requirement stops being a control you re-audit every quarter and becomes a property you can check on demand.</p>
+
+    <h2>Minimum necessary &mdash; and no model acting on its own</h2>
+    <p>HIPAA&rsquo;s minimum-necessary standard (&sect;164.502(b)) and the Security Rule&rsquo;s access controls come down to the same thing: only the right actor touches PHI, only for what&rsquo;s needed. ClaimZen treats its AI as an <strong>untrusted coprocessor</strong>. It reads ambiguity and proposes; a deterministic gate corroborates every proposed value against the source; a human authorizes before anything leaves the system, through a two-phase digest gate that refuses anything but the exact approved bytes.</p>
+    <p>The model never manufactures a fact and never executes an action. An autonomous mistake with PHI isn&rsquo;t a policy you have to enforce &mdash; it&rsquo;s a path that doesn&rsquo;t exist. And because each practice is its own tenant silo, isolated by key and ledger, one tenant&rsquo;s PHI is structurally separated from another&rsquo;s.</p>
+
+    <div class="callout-box">The same kernel runs under every ClaimZen product line &mdash; Recovery, Practice, and Migrate &mdash; so the audit trail, integrity guarantees, and human-in-the-loop controls are identical everywhere PHI flows. See the full architecture, running, in the <a href="/architecture/">architecture overview</a>.</div>
+
+    <h2>What &ldquo;by design&rdquo; does <em>not</em> replace</h2>
+    <p>Be clear-eyed about the boundary: no architecture makes an organization HIPAA compliant. Compliance is a shared responsibility, and the design above covers the technical core &mdash; not the whole program. Your practice still owns:</p>
+    <ul>
+      <li><strong>Administrative safeguards</strong> &mdash; a designated security officer, a documented risk analysis, workforce training, and sanction policies.</li>
+      <li><strong>Physical safeguards</strong> &mdash; facility access controls, workstation security, and device and media handling.</li>
+      <li><strong>A Business Associate Agreement</strong> &mdash; any vendor that handles your PHI, ClaimZen included, must operate under a signed BAA before a single record is shared. The BAA, not a badge, is what binds a vendor to HIPAA.</li>
+      <li><strong>Ongoing operations</strong> &mdash; encryption of PHI at rest and in transit, access provisioning and de-provisioning, breach notification, and periodic re-assessment.</li>
+    </ul>
+    <p>What &ldquo;HIPAA by design&rdquo; buys you is that the technical layer &mdash; the part most likely to fail quietly between assessments &mdash; is built to be <strong>provable</strong> rather than merely configured. When an auditor asks how you know your records weren&rsquo;t altered, the answer isn&rsquo;t a screenshot of a settings page. It&rsquo;s math.</p>
+
+    <div class="faq">
+      <h2>Frequently asked questions</h2>
+      <h3>Is ClaimZen &ldquo;HIPAA certified&rdquo;?</h3>
+      <p>There is no official HIPAA certification &mdash; HHS does not certify or endorse products. A vendor claiming to be &ldquo;HIPAA certified&rdquo; is describing a private third-party assessment, not a government stamp. Compliance is maintained by an organization, not carried as a badge by a product.</p>
+      <h3>Does a vendor like ClaimZen need to sign a BAA?</h3>
+      <p>Yes. A business associate that creates, receives, maintains, or transmits PHI on a covered entity&rsquo;s behalf must enter a Business Associate Agreement before PHI is shared. It&rsquo;s a legal prerequisite, not a formality.</p>
+      <h3>Does the AI see PHI, and is that a problem?</h3>
+      <p>The model is a contained, propose-only coprocessor: it can read case context to draft and suggest, but it never decides, acts, or promotes its own output to a fact &mdash; deterministic code and a human do that. HIPAA doesn&rsquo;t prohibit AI on PHI; doing it without controls and auditability is the risk, and containment addresses it directly.</p>
+      <h3>How does the signed ledger help during an audit or breach investigation?</h3>
+      <p>It turns assertions into evidence. Rather than testifying that your audit log is complete and unaltered, you demonstrate it &mdash; the hash chain proves no entry was edited, reordered, or removed, and each case exports as a signed packet a third party can verify offline.</p>
+    </div>
+
+    <div class="sources">
+      <h2>Sources</h2>
+      <ol>
+        <li>HHS, <a href="https://www.hhs.gov/hipaa/for-professionals/security/index.html" rel="noopener">HIPAA Security Rule</a>, 45 CFR Part 164, Subpart C &mdash; technical safeguards at &sect;164.312 (audit controls, integrity, access control, authentication, transmission security).</li>
+        <li>HHS, HIPAA Privacy Rule, minimum-necessary standard, 45 CFR &sect;164.502(b).</li>
+        <li>HHS, Business Associate Contracts, 45 CFR &sect;164.502(e) and &sect;164.308(b).</li>
+        <li>HHS Office for Civil Rights guidance: HHS does not certify HIPAA compliance; there is no official &ldquo;HIPAA certification.&rdquo;</li>
+        <li>NIST, <a href="https://csrc.nist.gov/pubs/sp/800/66/r2/final" rel="noopener">SP 800-66 Rev. 2</a>, Implementing the HIPAA Security Rule.</li>
+        <li>ClaimZen, <a href="/architecture/">system architecture</a>, for the kernel properties described (event-sourced state, hash-chained signed ledger, AI containment, two-phase actions, offline-verifiable evidence packets).</li>
+      </ol>
+      <p style="margin-top:12px">General information, not legal or compliance advice. HIPAA obligations depend on your organization, your data, and your contracts &mdash; consult your privacy/security officer and counsel.</p>
+    </div>
+  </div>
+  <div class="article-cta">
+    <h2>Proof you can hand to an auditor.</h2>
+    <p>ClaimZen makes the technical core of HIPAA &mdash; audit trail, integrity, accountability &mdash; provable by design. See how the kernel works, or get early access.</p>
+    <a class="btn btn-primary" href="/#contact">Get early access</a>
+  </div>
+</main>
+<footer class="footer">
+  <div class="wrap footer-in">
+    <div class="foot-brand"><span class="cz-logo" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -113 781 128" aria-hidden="true" focusable="false">
+  <g class="wm-claim" fill="var(--ink,currentColor)">
+    <path d="M787 -20C1192 -20 1419 260 1446 526H1089C1064 381 954 290 794 290C580 290 443 445 443 744C443 1033 577 1200 796 1200C956 1200 1065 1109 1088 964H1445C1404 1311 1141 1510 787 1510C390 1510 82 1236 82 744C82 255 384 -20 787 -20Z" transform="translate(0.00 0) scale(0.06711 -0.06711)"/>
+    <path d="M464 1490H115V0H464Z" transform="translate(100.57 0) scale(0.06711 -0.06711)"/>
+    <path d="M428 -20C583 -20 691 42 752 157H761V0H1089V759C1089 999 870 1132 592 1132C312 1132 136 1001 92 810L408 769C427 839 492 884 589 884C684 884 741 840 741 763V759C741 690 665 676 476 660C250 641 60 558 60 310C60 89 213 -20 428 -20ZM534 211C450 211 390 251 390 326C390 400 448 444 551 459C616 469 704 484 744 505V398C744 288 651 211 534 211Z" transform="translate(137.84 0) scale(0.06711 -0.06711)"/>
+    <path d="M115 0H464V1118H115ZM289 1249C389 1249 470 1324 470 1417C470 1510 389 1585 289 1585C190 1585 109 1510 109 1417C109 1324 190 1249 289 1249Z" transform="translate(217.07 0) scale(0.06711 -0.06711)"/>
+    <path d="M115 0H464V664C464 781 531 848 626 848C719 848 782 783 782 680V0H1117V671C1117 778 1178 848 1277 848C1369 848 1435 788 1435 675V0H1783V754C1783 990 1634 1133 1425 1133C1274 1133 1130 1057 1062 874C1007 1057 916 1133 774 1133C639 1133 514 1064 452 896L436 1118H115Z" transform="translate(254.34 0) scale(0.06711 -0.06711)"/>
+  </g>
+  <g class="wm-zen" fill="var(--accent,#12a594)">
+    <path d="M109 0H1282V288H835C733 288 632 288 531 283C596 357 659 431 713 504L1281 1287V1490H108V1202H580C673 1202 765 1202 858 1206C797 1138 738 1069 688 1000L109 202Z" transform="translate(380.14 0) scale(0.06711 -0.06711)"/>
+    <path d="M636 -21C907 -21 1090 102 1146 296L835 347C807 272 736 232 642 232C510 232 421 312 415 474H1162V562C1162 931 937 1132 623 1132C287 1132 72 900 72 555C72 197 285 -21 636 -21ZM417 677C430 800 503 879 626 879C748 879 817 804 831 677Z" transform="translate(471.78 0) scale(0.06711 -0.06711)"/>
+    <path d="M464 638C464 768 541 845 655 845C769 845 837 770 837 644V0H1186V712C1186 965 1033 1132 799 1132C618 1132 508 1032 449 877L443 1118H115V0H464Z" transform="translate(552.68 0) scale(0.06711 -0.06711)"/>
+  </g>
+  <g class="wm-enso" fill="none" stroke="var(--accent,#12a594)"><g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="7.6"><path d="M 761.3 -48.2 A 53 53 0 1 1 742.4 -90.6"/><path d="M 675.3 -55.0 L 693.3 -38.0 L 750.3 -97.0"/></g></g>
+</svg></span><div><div class="tag">Denials, answered.</div></div></div>
+    <nav class="foot-links" aria-label="Footer"><a href="/resources/">Resources</a><a href="/#how">How it works</a><a href="/#contact">Contact</a></nav>
+    <p class="copy">© 2026 ClaimZen. General information, not billing, legal, or coding advice.</p>
+  </div>
+</footer>
+</body>
+</html>
